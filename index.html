@@ -22,7 +22,7 @@ main{max-width:1450px;width:calc(100% - 228px);margin:0 auto 0 228px;padding:28p
 <style>.tag.female{background:#3d2447;color:#ffb6d5}.tag.male{background:#233b67;color:#b7d6ff}.tag.neutral{background:#2c3445;color:#c8d0dd}.meta span:nth-child(3){color:#9de4da}/* Fixed navigation */@media(max-width:850px){aside{display:none}main{margin:0;padding:23px 15px}}/* Horizontal timeline frame cards */.card{cursor:pointer}.timeline{display:flex;gap:12px;overflow-x:auto;padding:2px 1px 9px;margin-top:14px;scroll-snap-type:x proximity}.moment{position:relative;display:flex;flex:1 0 190px;min-width:190px;flex-direction:column;gap:7px;cursor:pointer;padding:0 0 2px;border-radius:10px;scroll-snap-align:start}.moment time{order:0;color:var(--cyan);font-size:12px;font-weight:700}.frame-shot{order:1;position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid #3c527f;border-radius:9px;background:#0a1020;box-shadow:0 5px 14px #05091466}.frame-shot img{display:block;width:100%;height:100%;object-fit:cover;transition:.2s}.frame-shot:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#05091488)}.frame-play{position:absolute;right:8px;bottom:7px;z-index:1;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#0b1020cc;color:#fff;font-size:11px}.moment p{order:2;margin:0;min-height:47px;padding:8px 9px;background:#1a2743;border:1px solid transparent;border-radius:8px;font-size:12px;line-height:1.45;color:#dce5fb}.moment:hover .frame-shot img{transform:scale(1.04)}.moment:hover p,.moment.selected p{border-color:var(--blue)}.moment.selected .frame-shot{border-color:var(--cyan);box-shadow:0 0 0 2px #59dcdc55,0 8px 18px #1f496655}.moment.selected time{color:#fff}@media(max-width:650px){.moment{flex-basis:220px;min-width:220px}}</style>
 <style>
 /* Six supplemental storyboard frames complete each ten-image review strip. */
-.extra-moment{cursor:default;padding-top:24px}
+.extra-moment{cursor:default}
 .extra-frame{background-size:cover;background-position:center}
 .storyboard-canvas{display:block;width:100%;height:100%;transition:none}
 .extra-moment:hover .storyboard-canvas{transform:none}
@@ -113,7 +113,7 @@ function storyboardFrameFor(spec,seconds){
 }
 function extraFramesFor(x){
   const spec=storyboardSpecs[x.id];if(!spec)return'';
-  return extraFrameTimes.map((seconds,index)=>{const frame=storyboardFrameFor(spec,seconds);return `<div class="moment extra-moment" aria-label="补充画面 ${index+1}"><div class="frame-shot extra-frame" style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><canvas class="storyboard-canvas" width="320" height="180" data-src="${frame.src}" data-sx="${frame.sx}" data-sy="${frame.sy}" data-sw="${frame.sw}" data-sh="${frame.sh}"></canvas></div></div>`}).join('')
+  return extraFrameTimes.map((seconds,index)=>{const frame=storyboardFrameFor(spec,seconds);return `<div class="moment extra-moment" aria-label="补充画面 ${fmt(seconds)}"><time>${fmt(seconds)}</time><div class="frame-shot extra-frame" style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><canvas class="storyboard-canvas" width="320" height="180" data-src="${frame.src}" data-sx="${frame.sx}" data-sy="${frame.sy}" data-sw="${frame.sw}" data-sh="${frame.sh}"></canvas></div></div>`}).join('')
 }
 function loadStoryboardImage(src){
   if(!storyboardImageCache.has(src)){storyboardImageCache.set(src,new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=src}))}
