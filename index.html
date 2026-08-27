@@ -113,7 +113,7 @@ function storyboardFrameFor(spec,seconds){
 }
 function extraFramesFor(x){
   const spec=storyboardSpecs[x.id];if(!spec)return'';
-  return extraFrameTimes.map((seconds,index)=>{const frame=storyboardFrameFor(spec,seconds);return `<div class="moment extra-moment" aria-label="补充画面 ${fmt(seconds)}"><time>${fmt(seconds)}</time><div class="frame-shot extra-frame" style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><canvas class="storyboard-canvas" width="320" height="180" data-src="${frame.src}" data-sx="${frame.sx}" data-sy="${frame.sy}" data-sw="${frame.sw}" data-sh="${frame.sh}"></canvas></div></div>`}).join('')
+  return extraFrameTimes.map((seconds,index)=>{const frame=storyboardFrameFor(spec,seconds);return `<div class="moment extra-moment" data-sort-seconds="${seconds}" aria-label="补充画面 ${fmt(seconds)}"><time>${fmt(seconds)}</time><div class="frame-shot extra-frame" style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><canvas class="storyboard-canvas" width="320" height="180" data-src="${frame.src}" data-sx="${frame.sx}" data-sy="${frame.sy}" data-sw="${frame.sw}" data-sh="${frame.sh}"></canvas></div></div>`}).join('')
 }
 function loadStoryboardImage(src){
   if(!storyboardImageCache.has(src)){storyboardImageCache.set(src,new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=src}))}
@@ -140,8 +140,10 @@ function open(i){
   player(`https://www.youtube.com/watch?v=${x.id}`,document.getElementById('mPlayer'));
   document.getElementById('mCover').innerHTML=`<img src="https://i.ytimg.com/vi/${x.id}/hqdefault.jpg" alt="${x.t} 封面"><b>${x.t}</b>`;
   document.getElementById('mMeta').innerHTML=`<span>${x.c}</span><span class="dot"></span><span>总时长 ${fmt(x.d)}</span><span class="dot"></span><span>${x.g.join(' · ')}</span><span class="dot"></span><a href="https://www.youtube.com/watch?v=${x.id}" target="_blank" style="color:var(--blue)">YouTube 原片 ↗</a>`;
-  const describedFrames=x.m.map((z,index)=>{const seconds=timelineSeconds(z[0]),thumbIndex=Math.min(index,3),thumb=`https://i.ytimg.com/vi/${x.id}/${thumbIndex}.jpg`;return `<div class="moment" data-seconds="${seconds}"><time>${z[0]}</time><div class="frame-shot"><img src="${thumb}" alt="${x.t} ${z[0]} 画面" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x.id}/hqdefault.jpg'"><span class="frame-play">▶</span></div><p>${z[1]}</p></div>`}).join('');
-  document.getElementById('timeline').innerHTML=describedFrames+extraFramesFor(x);
+  const describedFrames=x.m.map((z,index)=>{const seconds=timelineSeconds(z[0]),thumbIndex=Math.min(index,3),thumb=`https://i.ytimg.com/vi/${x.id}/${thumbIndex}.jpg`;return `<div class="moment" data-seconds="${seconds}" data-sort-seconds="${seconds}"><time>${z[0]}</time><div class="frame-shot"><img src="${thumb}" alt="${x.t} ${z[0]} 画面" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x.id}/hqdefault.jpg'"><span class="frame-play">▶</span></div><p>${z[1]}</p></div>`}).join('');
+  const timeline=document.getElementById('timeline');
+  timeline.innerHTML=describedFrames+extraFramesFor(x);
+  [...timeline.children].sort((a,b)=>Number(a.dataset.sortSeconds||0)-Number(b.dataset.sortSeconds||0)).forEach(node=>timeline.appendChild(node));
   document.querySelectorAll('#timeline .moment[data-seconds]').forEach(node=>node.onclick=()=>{document.querySelectorAll('#timeline .moment').forEach(n=>n.classList.remove('selected'));node.classList.add('selected');seekTimeline(Number(node.dataset.seconds))});
   document.querySelector('#timeline .moment[data-seconds]')?.classList.add('selected');
   paintStoryboardFrames();
