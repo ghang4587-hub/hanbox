@@ -168,7 +168,7 @@ document.getElementById('q').oninput=render;document.getElementById('channel').o
 /* Card covers stay visually clean; titles sit in the content area below each image. */
 function render(){
   const q=document.getElementById('q').value.toLowerCase(),c=document.getElementById('channel').value,d=document.getElementById('duration').value,sort=document.getElementById('sort').value,gender=document.getElementById('gender').value;
-  let arr=data.filter(x=>(!q||[x.t,x.c,...x.g,first10For(x),storyFor(x)].join('').toLowerCase().includes(q))&&(c==='all'||x.c===c)&&(active==='all'||x.g.includes(active))&&(d==='all'||d==='short'&&x.d>0&&x.d<=900||d==='long'&&x.d>900&&x.d<=1800||d==='xl'&&x.d>1800)&&(gender==='all'||x.gender===gender));
+  let arr=data.filter(x=>(!q||[x.t,x.c,...x.g,x.h,storyFor(x)].join('').toLowerCase().includes(q))&&(c==='all'||x.c===c)&&(active==='all'||x.g.includes(active))&&(d==='all'||d==='short'&&x.d>0&&x.d<=900||d==='long'&&x.d>900&&x.d<=1800||d==='xl'&&x.d>1800)&&(gender==='all'||x.gender===gender));
   if(sort==='views')arr.sort((a,b)=>(b.v||0)-(a.v||0));else if(sort==='latest')arr.sort((a,b)=>new Date(b.p||0)-new Date(a.p||0));else if(sort==='shortest')arr.sort((a,b)=>(a.d||Number.MAX_SAFE_INTEGER)-(b.d||Number.MAX_SAFE_INTEGER));else if(sort==='longest')arr.sort((a,b)=>(b.d||0)-(a.d||0));
   const sortLabel={views:'按播放量排序',latest:'按发布时间排序',shortest:'按时长从短到长',longest:'按时长从长到短'}[sort]||'按播放量排序';
   const weeklyCount=data.filter(isNewThisWeek).length;
@@ -176,7 +176,7 @@ function render(){
   const status=document.getElementById('statusText');if(status){const freshness=weeklyFeedUpdatedAt?`数据更新于 ${new Date(weeklyFeedUpdatedAt).toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}`:'每周自动刷新';status.textContent=`本周新增 ${weeklyCount} 条 · ${freshness}`;}
   const sampleCount=document.getElementById('sampleCount');if(sampleCount)sampleCount.textContent=data.length;
   const navCount=document.getElementById('navCount');if(navCount)navCount.textContent=data.length;
-  document.getElementById('grid').innerHTML=arr.length?arr.map(x=>{const isNew=isNewThisWeek(x);return `<article class='card${isNew?' new-week':''}'><div class='cover' style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><span class='time'>${fmt(x.d)}</span>${isNew?`<span class='new-badge'>本周新增</span>`:''}</div><div class='body'><h3 class='card-title'>${x.t}</h3><div class='meta'><span>${fmtViews(x.v)} 播放</span><span class='dot'></span><span>${fmtDate(x.p)} 发布</span><span class='dot'></span><span>${x.c}</span></div><div class='tags'>${x.g.map((t,j)=>`<span class='tag ${j===0?'hot':j===1?'gold':''}'>${t}</span>`).join('')}<span class='tag ${x.gender}'>${genderLabel(x.gender)}</span></div><div class='hook'><b>前10s精析</b><p>${first10For(x)}</p></div><div class='synopsis'><b>故事梗概</b><p>${storyFor(x)}</p></div><div class='foot'><button class='watch' data-i='${data.indexOf(x)}'>▶ 在页内观看</button><span class='score'>前10s吸睛度 ${x.s}</span></div></div></article>`}).join(''):`<div class='empty'>没有匹配结果，试试“反转”或切换筛选条件。</div>`;
+  document.getElementById('grid').innerHTML=arr.length?arr.map(x=>{const isNew=isNewThisWeek(x);return `<article class='card${isNew?' new-week':''}'><div class='cover' style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><span class='time'>${fmt(x.d)}</span>${isNew?`<span class='new-badge'>本周新增</span>`:''}</div><div class='body'><h3 class='card-title'>${x.t}</h3><div class='meta'><span>${fmtViews(x.v)} 播放</span><span class='dot'></span><span>${fmtDate(x.p)} 发布</span><span class='dot'></span><span>${x.c}</span></div><div class='tags'>${x.g.map((t,j)=>`<span class='tag ${j===0?'hot':j===1?'gold':''}'>${t}</span>`).join('')}<span class='tag ${x.gender}'>${genderLabel(x.gender)}</span></div><div class='hook'><b>前10s精析</b><p>${x.h}</p></div><div class='synopsis'><b>故事梗概</b><p>${storyFor(x)}</p></div><div class='foot'><button class='watch' data-i='${data.indexOf(x)}'>▶ 在页内观看</button><span class='score'>前10s吸睛度 ${x.s}</span></div></div></article>`}).join(''):`<div class='empty'>没有匹配结果，试试“反转”或切换筛选条件。</div>`;
   document.querySelectorAll('.watch').forEach(b=>b.onclick=e=>{e.stopPropagation();open(+b.dataset.i)});
 }
 /* Timeline nodes use YouTube preview frames and seek the embedded player on click. */
@@ -214,7 +214,7 @@ function paintStoryboardFrames(){
   })
 }
 function genericMomentsFor(x){
-  return [['00:00',first10For(x)],['00:58','冲突升级，隐藏关系或真实目的被揭开。'],['01:46','对立双方被迫正面交锋，情绪开始翻面。'],['02:43','新线索出现，留下下一集悬念。']]
+  return [['00:00',x.h||x.t],['00:58','冲突升级，隐藏关系或真实目的被揭开。'],['01:46','对立双方被迫正面交锋，情绪开始翻面。'],['02:43','新线索出现，留下下一集悬念。']]
 }
 function open(i){
   const x=data[i],f=flowFor(x);
@@ -262,3 +262,4 @@ loadWeeklyFeed();
 </script>
 </body>
 </html>
+
