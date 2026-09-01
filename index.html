@@ -33,7 +33,7 @@ main{max-width:1450px;width:calc(100% - 228px);margin:0 auto 0 228px;padding:28p
 <div class="app"><aside><div class="brand"><div class="mark">✦</div>Merge Spark Radar</div><div class="side-note"><b>今日抓取策略</b>先扫官方账号，锁定“身份反转 + 公开羞辱 + 反击”，优先看 00:00–03:00。</div></aside>
 <main><div class="top"><div><div class="kicker">UA CREATIVE INTELLIGENCE · 08.26</div><div class="title">短剧热点抓取台</div><p class="desc">边看 YouTube，边拆出能用于买量的前三分钟冲突。</p></div><div class="status"><i></i><span id="statusText">样本库每周自动刷新</span></div></div>
 <div class="toolbar"><div class="search"><span>⌕</span><input id="q" placeholder="搜标题、频道、冲突关键词…"></div><select id="channel"><option value="all">全部账号</option><option>DramaBox 官方</option><option>GoodShort 官方</option></select><select id="duration"><option value="all">任意总时长</option><option value="short">≤ 15 分钟</option><option value="long">15–30 分钟</option><option value="xl">30 分钟以上</option></select><select id="sort" aria-label="排序方式"><option value="views">播放量最高</option><option value="latest">最新发布</option><option value="shortest">时长最短</option><option value="longest">时长最长</option></select><select id="gender" aria-label="频向筛选"><option value="all">全部频向</option><option value="female">女频</option><option value="male">男频</option><option value="neutral">中性待判</option></select><button class="chip on" data-tag="all">全部</button><button class="chip" data-tag="反转">身份反转</button><button class="chip" data-tag="打脸">公开打脸</button><button class="chip" data-tag="复仇">复仇线</button></div>
-<div class="stats"><div class="stat"><label>本次官方账号样本</label><strong id="sampleCount">30</strong><em>DramaBox + GoodShort</em></div><div class="stat"><label>前10s高吸睛（≥ 85）</label><strong>22</strong><em>可优先拆条</em></div><div class="stat"><label>平均总时长</label><strong>18:59</strong><em>前三分钟信息密度最高</em></div><div class="stat"><label>本周高频母题</label><strong>身份反转</strong><em>出现 31 次 · +9</em></div></div>
+<div class="stats"><div class="stat"><label>本次官方账号样本</label><strong id="sampleCount">30</strong><em>固定30条 · DramaBox + GoodShort</em></div><div class="stat"><label>前10s高吸睛（≥ 85）</label><strong>22</strong><em>可优先拆条</em></div><div class="stat"><label>平均总时长</label><strong>18:59</strong><em>前三分钟信息密度最高</em></div><div class="stat"><label>本周高频母题</label><strong>身份反转</strong><em>出现 31 次 · +9</em></div></div>
 <div class="section"><h2>值得先看的开头</h2><span id="count">显示 6 条 · 按前10s吸睛度排序</span></div><div id="grid" class="grid"></div></main></div>
 <div id="modal" class="modal"><div class="dialog"><div class="dialog-head"><div><div class="kicker">FIRST 180 SECONDS</div><h2 id="mTitle"></h2></div><button id="close" class="close">×</button></div><div class="dialog-body"><div id="mPlayer" class="dialog-player"></div><div id="mCover" aria-hidden="true" style="display:none"></div><div id="mMeta" class="dialog-meta"></div><div id="timeline" class="timeline"></div><div id="flow" class="flow"></div><div class="tip"><b>买量改编提示</b><span id="mCta"></span></div></div></div></div>
 <script>
@@ -148,6 +148,17 @@ const cardCopyOverrides={
 };
 const weekStart=d=>{const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x};
 const isNewThisWeek=x=>{if(!x.p)return false;const start=weekStart(new Date),end=new Date(start);end.setDate(start.getDate()+7);const published=new Date(x.p);return published>=start&&published<end};
+const SAMPLE_LIMIT=30,WEEKLY_PRIORITY_LIMIT=10;
+const sampleViews=x=>Number(x?.v)||0;
+const samplePublished=x=>{const value=Date.parse(x?.p||'');return Number.isFinite(value)?value:0};
+function retainSampleLimit(){
+  if(data.length<=SAMPLE_LIMIT)return;
+  const weekly=[...data].filter(isNewThisWeek).sort((a,b)=>sampleViews(b)-sampleViews(a)||samplePublished(b)-samplePublished(a)).slice(0,WEEKLY_PRIORITY_LIMIT);
+  const selected=[],ids=new Set();
+  weekly.forEach(item=>{if(!ids.has(item.id)){selected.push(item);ids.add(item.id)}});
+  [...data].sort((a,b)=>sampleViews(b)-sampleViews(a)||samplePublished(b)-samplePublished(a)).forEach(item=>{if(selected.length<SAMPLE_LIMIT&&!ids.has(item.id)){selected.push(item);ids.add(item.id)}});
+  data.splice(0,data.length,...selected.slice(0,SAMPLE_LIMIT));
+}
 function attentionFor(x){const g=(x.g||[]).join('');if(/婚礼|出轨|离婚|打脸/.test(g))return'公开羞辱一出现，观众会马上等主角反击。';if(/身份|豪门|反转/.test(g))return'先让所有人看错主角，再快速露出身份反转。';if(/末日|系统|资源/.test(g))return'极端缺口配上开挂能力，资源差一眼就能看懂。';if(/亲情|孩子|母亲/.test(g))return'先伤害最亲近的人，立刻制造心疼和追真相的动力。';return'人物目标和眼前阻碍同时出现，冲突不用解释就能看懂。'}
 function first10For(x){const override=cardCopyOverrides[x.id];if(override?.ten)return override.ten;if(x.ten)return x.ten;const beat=(Array.isArray(x.m)&&x.m[0]?.[1])||x.h||x.t;return `画面：${beat}｜吸睛点：${attentionFor(x)}`}
 function storyFor(x){return cardCopyOverrides[x.id]?.story||x.story||x.h||'主角被卷入一场突发冲突，必须马上做出选择。'}
@@ -254,6 +265,7 @@ async function loadWeeklyFeed(){
     const response=await fetch(`data/weekly.json?v=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);
     const payload=await response.json();const incoming=Array.isArray(payload.videos)?payload.videos.map(normalizeWeeklyVideo).filter(Boolean):[];const byId=new Map(data.map(item=>[item.id,item]));
     incoming.forEach(item=>{const existing=byId.get(item.id);if(existing){if(item.v)existing.v=item.v;if(item.p)existing.p=item.p;if(item.d)existing.d=item.d;if(item.ten)existing.ten=item.ten;if(item.story)existing.story=item.story}else{data.push(item);byId.set(item.id,item)}});
+    retainSampleLimit();
     data.forEach(item=>{Object.assign(item,statsById[item.id]||{});item.gender=inferGender(item)});
     weeklyFeedUpdatedAt=payload.generatedAt||'';render();
   }catch(error){console.info('Weekly feed unavailable; using built-in samples.',error)}
