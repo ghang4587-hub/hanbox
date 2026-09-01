@@ -3,16 +3,18 @@
 
 The public Atom feed is the no-key fallback.  When YOUTUBE_API_KEY is present,
 the script enriches the same records with the Data API's exact duration and
-view count.  It intentionally writes JSON only; the HTML remains a static,
-cacheable artifact and keeps its built-in sample data as a fallback.
+view count.  It also stores ten real storyboard frames for retained videos;
+the HTML remains a static, cacheable artifact with built-in fallback data.
 """
 
 from __future__ import annotations
 
 import html
+import io
 import json
 import os
 import re
+import shutil
 import sys
 import urllib.parse
 import urllib.request
@@ -25,9 +27,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config" / "youtube-channels.json"
 DATA_PATH = ROOT / "data" / "weekly.json"
+FRAMES_ROOT = ROOT / "assets" / "frames"
 USER_AGENT = "MergeSparkRadarWeeklyRefresh/1.0 (+GitHub Actions)"
+BROWSER_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"
 SAMPLE_LIMIT = 30
 WEEKLY_PRIORITY_LIMIT = 10
+FRAME_SECONDS = (0, 20, 40, 58, 80, 100, 106, 130, 145, 163)
 ATOM_NS = {
     "atom": "http://www.w3.org/2005/Atom",
     "yt": "http://www.youtube.com/xml/schemas/2015",
@@ -37,6 +42,15 @@ ATOM_NS = {
 
 def fetch_bytes(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request, timeout=35) as response:
+        return response.read()
+
+
+def fetch_browser_bytes(url: str) -> bytes:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": BROWSER_USER_AGENT, "Accept-Language": "en-US,en;q=0.9"},
+    )
     with urllib.request.urlopen(request, timeout=35) as response:
         return response.read()
 
@@ -180,6 +194,141 @@ def parse_duration(value: str) -> int:
         return 0
     hours, minutes, seconds = (int(part or 0) for part in match.groups())
     return hours * 3600 + minutes * 60 + seconds
+
+
+def parse_watch_metadata_html(page: str) -> tuple[int, dict | None]:
+    """Read exact duration and the highest-resolution YouTube storyboard level."""
+    duration_match = re.search(r'"lengthSeconds"\s*:\s*"(\d+)"', page or "")
+    duration = int(duration_match.group(1)) if duration_match else 0
+    spec_match = re.search(
+        r'"storyboards"\s*:\s*\{\s*"playerStoryboardSpecRenderer"\s*:\s*\{\s*"spec"\s*:\s*"((?:\\.|[^"\\])*)"',
+        page or "",
+    )
+    if not spec_match:
+        return duration, None
+    try:
+        spec = json.loads(f'"{spec_match.group(1)}"')
+    except json.JSONDecodeError:
+        return duration, None
+
+    parts = spec.split("|")
+    if len(parts) < 2:
+        return duration, None
+    base_url = parts[0]
+    levels: list[dict] = []
+    for level_index, payload in enumerate(parts[1:]):
+        fields = payload.split("#")
+        if len(fields) < 8:
+            continue
+        try:
+            width, height, count, cols, rows, interval_ms = map(int, fields[:6])
+        except ValueError:
+            continue
+        if min(width, height, count, cols, rows, interval_ms) <= 0:
+            continue
+        template = base_url.replace("$L", str(level_index)).replace("$N", fields[6])
+        template += ("&" if "?" in template else "?") + f"sigh={fields[7]}"
+        levels.append(
+            {
+                "url": template,
+                "w": width,
+                "h": height,
+                "count": count,
+                "cols": cols,
+                "rows": rows,
+                "ms": interval_ms,
+            }
+        )
+    if not levels:
+        return duration, None
+    return duration, max(levels, key=lambda level: level["w"] * level["h"])
+
+
+def fetch_watch_metadata(video_id: str) -> tuple[int, dict | None]:
+    query = urllib.parse.urlencode({"v": video_id, "hl": "en", "bpctr": "9999999999"})
+    page = fetch_browser_bytes(f"https://www.youtube.com/watch?{query}").decode("utf-8", "replace")
+    return parse_watch_metadata_html(page)
+
+
+def frame_path(video_id: str, seconds: int) -> Path:
+    return FRAMES_ROOT / video_id / f"{seconds:03d}.jpg"
+
+
+def existing_frames(video_id: str) -> dict[str, str]:
+    return {
+        str(seconds): frame_path(video_id, seconds).relative_to(ROOT).as_posix()
+        for seconds in FRAME_SECONDS
+        if frame_path(video_id, seconds).is_file()
+    }
+
+
+def capture_storyboard_frames(video_id: str, spec: dict) -> dict[str, str]:
+    """Crop ten real frames from YouTube's official storyboard sheets."""
+    from PIL import Image, ImageFilter, ImageOps
+
+    target_dir = FRAMES_ROOT / video_id
+    target_dir.mkdir(parents=True, exist_ok=True)
+    sheet_cache: dict[int, Image.Image] = {}
+    captured: dict[str, str] = {}
+    cells_per_sheet = spec["cols"] * spec["rows"]
+    for seconds in FRAME_SECONDS:
+        frame_index = min(spec["count"] - 1, max(0, seconds * 1000 // spec["ms"]))
+        sheet_index, cell_index = divmod(frame_index, cells_per_sheet)
+        if sheet_index not in sheet_cache:
+            sheet_url = spec["url"].replace("$M", str(sheet_index))
+            sheet_cache[sheet_index] = Image.open(io.BytesIO(fetch_browser_bytes(sheet_url))).convert("RGB")
+        sheet = sheet_cache[sheet_index]
+        left = (cell_index % spec["cols"]) * spec["w"]
+        top = (cell_index // spec["cols"]) * spec["h"]
+        frame = sheet.crop((left, top, left + spec["w"], top + spec["h"]))
+
+        background = ImageOps.fit(frame, (640, 360), method=Image.Resampling.LANCZOS)
+        background = background.filter(ImageFilter.GaussianBlur(18)).point(lambda value: int(value * 0.62))
+        foreground = ImageOps.contain(frame, (640, 360), method=Image.Resampling.LANCZOS)
+        background.paste(foreground, ((640 - foreground.width) // 2, (360 - foreground.height) // 2))
+        output = frame_path(video_id, seconds)
+        background.save(output, "JPEG", quality=80, optimize=True, progressive=True)
+        captured[str(seconds)] = output.relative_to(ROOT).as_posix()
+    return captured
+
+
+def enrich_weekly_media(videos: list[dict]) -> None:
+    """Fill duration and frame assets for the current week's retained videos."""
+    FRAMES_ROOT.mkdir(parents=True, exist_ok=True)
+    weekly = sorted(
+        (item for item in videos if is_current_week(item)),
+        key=popularity_key,
+        reverse=True,
+    )[:WEEKLY_PRIORITY_LIMIT]
+    for item in weekly:
+        video_id = str(item.get("id") or "")
+        if not re.fullmatch(r"[A-Za-z0-9_-]{6,20}", video_id):
+            continue
+        frames = existing_frames(video_id)
+        if len(frames) == len(FRAME_SECONDS) and int(item.get("d") or 0) > 0:
+            item["frames"] = frames
+            continue
+        try:
+            duration, storyboard = fetch_watch_metadata(video_id)
+            if duration:
+                item["d"] = duration
+            if storyboard and len(frames) < len(FRAME_SECONDS):
+                frames = capture_storyboard_frames(video_id, storyboard)
+                item["framesCapturedAt"] = datetime.now(timezone.utc).isoformat()
+            if frames:
+                item["frames"] = frames
+            print(f"media {video_id}: duration={item.get('d', 0)} frames={len(frames)}")
+        except Exception as exc:
+            print(f"warning: media capture failed for {video_id}: {exc}", file=sys.stderr)
+
+
+def prune_frame_assets(videos: list[dict]) -> None:
+    if not FRAMES_ROOT.exists():
+        return
+    keep_ids = {str(item.get("id")) for item in videos if item.get("id")}
+    for path in FRAMES_ROOT.iterdir():
+        if path.is_dir() and path.name not in keep_ids:
+            shutil.rmtree(path)
 
 
 def generic_moments(hook: str) -> list[list[str]]:
@@ -371,6 +520,8 @@ def main() -> int:
             by_id[item["id"]] = item
 
     videos = select_sample(list(by_id.values()))
+    enrich_weekly_media(videos)
+    prune_frame_assets(videos)
     existing.update(
         {
             "version": 1,
