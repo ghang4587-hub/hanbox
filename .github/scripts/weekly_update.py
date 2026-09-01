@@ -204,6 +204,8 @@ def feed_entries(channel: dict) -> list[dict]:
         hook = synopsis_from_description(description, title)
         story_source = synopsis_from_description(description, title, limit=260)
         card_copy = direct_card_copy(title, hook)
+        translated_hook = translate_to_zh(hook)
+        display_hook = translated_hook or hook
         translated_story = translate_to_zh(story_source)
         if not video_id or not title:
             continue
@@ -215,11 +217,12 @@ def feed_entries(channel: dict) -> list[dict]:
                 "d": 0,
                 "s": hook_score(title, hook),
                 "g": tags_for(title, description),
-                "h": hook,
+                "h": display_hook,
+                "hEn": hook,
                 "ten": card_copy["ten"],
                 "story": translated_story or card_copy["story"],
                 "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-                "m": generic_moments(hook),
+                "m": generic_moments(display_hook),
                 "v": parse_views(entry),
                 "p": published,
                 "source": "youtube-atom",
@@ -288,8 +291,15 @@ def main() -> int:
     for previous in existing.get("videos", []):
         card_copy = direct_card_copy(str(previous.get("t", "")), str(previous.get("h", "")))
         previous.setdefault("ten", card_copy["ten"])
+        previous_hook = str(previous.get("h", ""))
+        if previous_hook and not re.search(r"[\u3400-\u9fff]", previous_hook):
+            translated_hook = translate_to_zh(previous_hook)
+            if translated_hook:
+                previous["h"] = translated_hook
+                if isinstance(previous.get("m"), list) and previous["m"] and isinstance(previous["m"][0], list):
+                    previous["m"][0][1] = translated_hook
         story_source = synopsis_from_description(
-            str(previous.get("h", "")), str(previous.get("t", "")), limit=260
+            previous_hook, str(previous.get("t", "")), limit=260
         )
         existing_story = str(previous.get("story", ""))
         if not existing_story or not re.search(r"[\u3400-\u9fff]", existing_story):
@@ -301,7 +311,7 @@ def main() -> int:
         if previous:
             # Keep any manually edited analysis while refreshing factual fields.
             if previous.get("source") == "youtube-atom":
-                for key in ("s", "g", "h", "ten", "story", "u", "m"):
+                for key in ("s", "g", "h", "hEn", "ten", "story", "u", "m"):
                     previous[key] = item[key]
             elif item.get("story"):
                 previous["story"] = item["story"]
