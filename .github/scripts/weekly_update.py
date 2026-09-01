@@ -17,7 +17,7 @@ import sys
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from functools import lru_cache
 from pathlib import Path
 
@@ -26,6 +26,8 @@ ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config" / "youtube-channels.json"
 DATA_PATH = ROOT / "data" / "weekly.json"
 USER_AGENT = "MergeSparkRadarWeeklyRefresh/1.0 (+GitHub Actions)"
+SAMPLE_LIMIT = 30
+WEEKLY_PRIORITY_LIMIT = 10
 ATOM_NS = {
     "atom": "http://www.w3.org/2005/Atom",
     "yt": "http://www.youtube.com/xml/schemas/2015",
@@ -263,6 +265,53 @@ def load_existing() -> dict:
         return {"version": 1, "generatedAt": None, "source": "YouTube public channel feeds", "videos": []}
 
 
+def parse_published(value: object) -> datetime | None:
+    text = str(value or "").strip()
+    if not text:
+        return None
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def is_current_week(item: dict, now: datetime | None = None) -> bool:
+    published = parse_published(item.get("p"))
+    if published is None:
+        return False
+    current = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    start = current.replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=current.weekday())
+    return start <= published < start + timedelta(days=7)
+
+
+def popularity_key(item: dict) -> tuple[int, float]:
+    try:
+        views = int(item.get("v") or 0)
+    except (TypeError, ValueError):
+        views = 0
+    published = parse_published(item.get("p"))
+    return views, published.timestamp() if published else 0.0
+
+
+def select_sample(videos: list[dict]) -> list[dict]:
+    """Keep this week's strongest additions, then fill the 30 slots by views."""
+    weekly = sorted(
+        (item for item in videos if is_current_week(item)),
+        key=popularity_key,
+        reverse=True,
+    )[:WEEKLY_PRIORITY_LIMIT]
+    selected_ids = {item.get("id") for item in weekly}
+    remaining = sorted(
+        (item for item in videos if item.get("id") not in selected_ids),
+        key=popularity_key,
+        reverse=True,
+    )
+    return (weekly + remaining)[:SAMPLE_LIMIT]
+
+
 def main() -> int:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     channels = [channel for channel in config.get("channels", []) if channel.get("id")]
@@ -321,14 +370,13 @@ def main() -> int:
         else:
             by_id[item["id"]] = item
 
-    videos = list(by_id.values())
-    videos.sort(key=lambda item: item.get("p") or "", reverse=True)
+    videos = select_sample(list(by_id.values()))
     existing.update(
         {
             "version": 1,
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             "source": "YouTube public channel feeds" + (" + Data API" if api_key else ""),
-            "videos": videos[:90],
+            "videos": videos,
         }
     )
     DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -339,5 +387,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
 
