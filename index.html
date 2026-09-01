@@ -275,7 +275,7 @@ async function loadWeeklyFeed(){
   try{
     const response=await fetch(`data/weekly.json?v=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);
     const payload=await response.json();const incoming=Array.isArray(payload.videos)?payload.videos.map(normalizeWeeklyVideo).filter(Boolean):[];const byId=new Map(data.map(item=>[item.id,item]));
-    incoming.forEach(item=>{const existing=byId.get(item.id);if(existing){if(item.v)existing.v=item.v;if(item.p)existing.p=item.p;if(item.d)existing.d=item.d;if(item.ten)existing.ten=item.ten;if(item.hZh)existing.hZh=item.hZh;if(item.story)existing.story=item.story;if(Object.keys(item.frames||{}).length)existing.frames=item.frames}else{data.push(item);byId.set(item.id,item)}});
+    incoming.forEach(item=>{const existing=byId.get(item.id);if(existing){if(item.v)existing.v=item.v;if(item.p)existing.p=item.p;if(item.d)existing.d=item.d;if(item.ten)existing.ten=item.ten;if(item.hZh)existing.hZh=item.hZh;if(item.story)existing.story=item.story;if(Object.keys(item.frames||{}).length)existing.frames=item.frames;if(item.storyboard)existing.storyboard=item.storyboard}else{data.push(item);byId.set(item.id,item)}});
     retainSampleLimit();
     data.forEach(item=>{Object.assign(item,statsById[item.id]||{});item.gender=inferGender(item)});
     weeklyFeedUpdatedAt=payload.generatedAt||'';render();
