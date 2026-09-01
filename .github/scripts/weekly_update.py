@@ -17,7 +17,7 @@ import sys
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
 
@@ -31,8 +31,6 @@ ATOM_NS = {
     "yt": "http://www.youtube.com/xml/schemas/2015",
     "media": "http://search.yahoo.com/mrss/",
 }
-SAMPLE_LIMIT = 30
-WEEKLY_PRIORITY_LIMIT = 10
 
 
 def fetch_bytes(url: str) -> bytes:
@@ -262,72 +260,6 @@ def load_existing() -> dict:
         return {"version": 1, "generatedAt": None, "source": "YouTube public channel feeds", "videos": []}
 
 
-def parse_published(value: str) -> datetime | None:
-    """Parse an ISO/RFC3339 publication timestamp without failing the refresh."""
-    if not value:
-        return None
-    try:
-        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-        return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
-    except (TypeError, ValueError):
-        return None
-
-
-def is_current_week(item: dict, now: datetime | None = None) -> bool:
-    """Return whether a video was published since this week's Monday (UTC)."""
-    published = parse_published(str(item.get("p") or ""))
-    if published is None:
-        return False
-    current = now or datetime.now(timezone.utc)
-    current = current.astimezone(timezone.utc)
-    monday = current.replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=current.weekday())
-    return monday <= published.astimezone(timezone.utc) < monday + timedelta(days=7)
-
-
-def popularity_key(item: dict) -> tuple[int, float]:
-    """Sort by current views first, then by recency for ties/missing counts."""
-    try:
-        views = int(item.get("v") or 0)
-    except (TypeError, ValueError):
-        views = 0
-    published = parse_published(str(item.get("p") or ""))
-    return views, published.timestamp() if published else 0.0
-
-
-def select_sample(items: list[dict], limit: int = SAMPLE_LIMIT) -> list[dict]:
-    """Keep a small, useful feed while guaranteeing a slot for this week's hits.
-
-    The feed can contain many historical entries after repeated weekly runs. We
-    reserve up to ten slots for the most-viewed videos published this week, then
-    fill the remaining slots with the most-viewed records across the full cache.
-    This keeps the static page fast without losing fresh popular samples.
-    """
-    if len(items) <= limit:
-        return sorted(items, key=popularity_key, reverse=True)
-
-    weekly = sorted(
-        (item for item in items if is_current_week(item)),
-        key=popularity_key,
-        reverse=True,
-    )[:WEEKLY_PRIORITY_LIMIT]
-    selected: list[dict] = []
-    selected_ids: set[str] = set()
-    for item in weekly:
-        item_id = str(item.get("id") or "")
-        if item_id and item_id not in selected_ids:
-            selected.append(item)
-            selected_ids.add(item_id)
-
-    for item in sorted(items, key=popularity_key, reverse=True):
-        if len(selected) >= limit:
-            break
-        item_id = str(item.get("id") or "")
-        if item_id and item_id not in selected_ids:
-            selected.append(item)
-            selected_ids.add(item_id)
-    return selected[:limit]
-
-
 def main() -> int:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     channels = [channel for channel in config.get("channels", []) if channel.get("id")]
@@ -379,13 +311,14 @@ def main() -> int:
         else:
             by_id[item["id"]] = item
 
-    videos = select_sample(list(by_id.values()))
+    videos = list(by_id.values())
+    videos.sort(key=lambda item: item.get("p") or "", reverse=True)
     existing.update(
         {
             "version": 1,
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             "source": "YouTube public channel feeds" + (" + Data API" if api_key else ""),
-            "videos": videos,
+            "videos": videos[:90],
         }
     )
     DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
