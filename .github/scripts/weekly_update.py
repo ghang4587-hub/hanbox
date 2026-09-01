@@ -18,6 +18,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 
 
@@ -49,6 +50,7 @@ def clean_text(value: str, limit: int = 260) -> str:
     value = html.unescape(value or "")
     value = re.sub(r"<[^>]+>", " ", value)
     value = re.sub(r"https?://\S+", "", value)
+    value = re.sub(r"#\S+", "", value)
     value = re.sub(r"\s+", " ", value).strip()
     return value[:limit].rstrip()
 
@@ -61,11 +63,28 @@ def parse_views(entry: ET.Element) -> int:
         return 0
 
 
-def synopsis_from_description(description: str, title: str) -> str:
+def synopsis_from_description(description: str, title: str, limit: int = 150) -> str:
     clean = clean_text(description, 340)
-    match = re.search(r"(?:synopsis|story|plot|简介|故事梗概)\s*:\s*(.+)", clean, re.I)
+    match = re.search(r"(?:synopsis|story|plot|introduction|简介|故事梗概)\s*:\s*(.+)", clean, re.I)
     result = match.group(1) if match else clean
-    return (result or title)[:150].rstrip(" .")
+    return (result or title)[:limit].rstrip(" .")
+
+
+@lru_cache(maxsize=256)
+def translate_to_zh(text: str) -> str:
+    """Translate a public English synopsis to Simplified Chinese for the card."""
+    source = re.sub(r"\s+", " ", text or "").strip()
+    if not source or re.search(r"[\u3400-\u9fff]", source):
+        return source
+    query = urllib.parse.urlencode(
+        {"client": "gtx", "sl": "auto", "tl": "zh-CN", "dt": "t", "q": source}
+    )
+    try:
+        payload = json.loads(fetch_bytes(f"https://translate.googleapis.com/translate_a/single?{query}"))
+        translated = "".join(part[0] for part in payload[0] if part and part[0])
+        return re.sub(r"\s+", " ", translated).strip()
+    except Exception:
+        return ""
 
 
 def direct_card_copy(title: str, synopsis: str) -> dict[str, str]:
@@ -183,7 +202,9 @@ def feed_entries(channel: dict) -> list[dict]:
             description = node.text or ""
             break
         hook = synopsis_from_description(description, title)
+        story_source = synopsis_from_description(description, title, limit=260)
         card_copy = direct_card_copy(title, hook)
+        translated_story = translate_to_zh(story_source)
         if not video_id or not title:
             continue
         result.append(
@@ -196,9 +217,9 @@ def feed_entries(channel: dict) -> list[dict]:
                 "g": tags_for(title, description),
                 "h": hook,
                 "ten": card_copy["ten"],
-                "story": card_copy["story"],
+                "story": translated_story or card_copy["story"],
                 "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-                "m": generic_moments(card_copy["ten"]),
+                "m": generic_moments(hook),
                 "v": parse_views(entry),
                 "p": published,
                 "source": "youtube-atom",
@@ -267,7 +288,13 @@ def main() -> int:
     for previous in existing.get("videos", []):
         card_copy = direct_card_copy(str(previous.get("t", "")), str(previous.get("h", "")))
         previous.setdefault("ten", card_copy["ten"])
-        previous.setdefault("story", card_copy["story"])
+        story_source = synopsis_from_description(
+            str(previous.get("h", "")), str(previous.get("t", "")), limit=260
+        )
+        existing_story = str(previous.get("story", ""))
+        if not existing_story or not re.search(r"[\u3400-\u9fff]", existing_story):
+            translated_story = translate_to_zh(story_source)
+            previous["story"] = translated_story or existing_story or card_copy["story"]
     by_id = {item.get("id"): item for item in existing.get("videos", []) if item.get("id")}
     for item in fetched:
         previous = by_id.get(item["id"])
@@ -276,6 +303,8 @@ def main() -> int:
             if previous.get("source") == "youtube-atom":
                 for key in ("s", "g", "h", "ten", "story", "u", "m"):
                     previous[key] = item[key]
+            elif item.get("story"):
+                previous["story"] = item["story"]
             for key in ("t", "c", "d", "v", "p", "source", "sourceUrl"):
                 if item.get(key) not in (None, "", 0) or key in ("t", "c", "p", "source", "sourceUrl"):
                     previous[key] = item.get(key)
@@ -300,4 +329,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
