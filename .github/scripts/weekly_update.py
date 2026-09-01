@@ -33,6 +33,7 @@ BROWSER_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/
 SAMPLE_LIMIT = 30
 WEEKLY_PRIORITY_LIMIT = 10
 FRAME_SECONDS = (0, 20, 40, 58, 80, 100, 106, 130, 145, 163)
+INNERTUBE_PLAYER_URL = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
 ATOM_NS = {
     "atom": "http://www.w3.org/2005/Atom",
     "yt": "http://www.youtube.com/xml/schemas/2015",
@@ -244,10 +245,133 @@ def parse_watch_metadata_html(page: str) -> tuple[int, dict | None]:
     return duration, max(levels, key=lambda level: level["w"] * level["h"])
 
 
+def parse_storyboard_spec(spec: str) -> dict | None:
+    """Convert YouTube's pipe-delimited storyboard spec into a crop recipe."""
+    parts = str(spec or "").split("|")
+    if len(parts) < 2:
+        return None
+    base_url = parts[0]
+    levels: list[dict] = []
+    for level_index, payload in enumerate(parts[1:]):
+        fields = payload.split("#")
+        if len(fields) < 8:
+            continue
+        try:
+            width, height, count, cols, rows, interval_ms = map(int, fields[:6])
+        except ValueError:
+            continue
+        if min(width, height, count, cols, rows, interval_ms) <= 0:
+            continue
+        template = base_url.replace("$L", str(level_index)).replace("$N", fields[6])
+        template += ("&" if "?" in template else "?") + f"sigh={fields[7]}"
+        levels.append(
+            {
+                "url": template,
+                "w": width,
+                "h": height,
+                "count": count,
+                "cols": cols,
+                "rows": rows,
+                "ms": interval_ms,
+            }
+        )
+    return max(levels, key=lambda level: level["w"] * level["h"]) if levels else None
+
+
+def parse_player_response(payload: dict) -> tuple[int, dict | None]:
+    """Read duration and storyboard metadata from an InnerTube player response."""
+    details = payload.get("videoDetails") or {}
+    try:
+        duration = int(details.get("lengthSeconds") or 0)
+    except (TypeError, ValueError):
+        duration = 0
+    renderer = (payload.get("storyboards") or {}).get("playerStoryboardSpecRenderer") or {}
+    return duration, parse_storyboard_spec(renderer.get("spec", ""))
+
+
+def fetch_innertube_metadata(video_id: str) -> tuple[int, dict | None]:
+    """Use YouTube's documented-in-practice player endpoint as a metadata fallback.
+
+    The public watch page is increasingly bot-protected on hosted CI runners.  The
+    embed page still exposes the current public API key and client version, so we
+    reuse those values instead of hard-coding a key that may expire.  This endpoint
+    is metadata-only here; no stream URL or account credential is requested.
+    """
+    embed_url = f"https://www.youtube.com/embed/{video_id}?hl=en"
+    embed_page = fetch_browser_bytes(embed_url).decode("utf-8", "replace")
+    key_match = re.search(r'"INNERTUBE_API_KEY"\s*:\s*"([^"]+)"', embed_page)
+    version_match = re.search(r'"INNERTUBE_CLIENT_VERSION"\s*:\s*"([^"]+)"', embed_page)
+    visitor_match = re.search(r'"visitorData"\s*:\s*"([^"]+)"', embed_page)
+    if not key_match or not version_match:
+        return 0, None
+    api_key = key_match.group(1)
+    client_version = version_match.group(1)
+    visitor_data = visitor_match.group(1) if visitor_match else ""
+
+    clients = (
+        ("WEB_EMBEDDED_PLAYER", "56", True),
+        # TVHTML5_SIMPLY often retains duration when WEB is rate-limited.  It does
+        # not normally return storyboards, but is useful as a duration fallback.
+        ("TVHTML5_SIMPLY", "75", False),
+    )
+    duration = 0
+    storyboard = None
+    for client_name, client_id, embedded in clients:
+        client = {
+            "clientName": client_name,
+            "clientVersion": client_version if embedded else "1.0",
+            "hl": "en",
+            "gl": "US",
+        }
+        if visitor_data:
+            client["visitorData"] = visitor_data
+        context = {"client": client}
+        if embedded:
+            context["thirdParty"] = {"embedUrl": "https://ghang4587-hub.github.io/hanbox/"}
+        body = {
+            "videoId": video_id,
+            "context": context,
+            "contentCheckOk": True,
+            "racyCheckOk": True,
+        }
+        request = urllib.request.Request(
+            f"{INNERTUBE_PLAYER_URL}&key={urllib.parse.quote(api_key)}",
+            data=json.dumps(body).encode("utf-8"),
+            headers={
+                "Content-Type": "application/json",
+                "User-Agent": BROWSER_USER_AGENT,
+                "Origin": "https://www.youtube.com",
+                "Referer": embed_url,
+                "X-YouTube-Client-Name": client_id,
+                "X-YouTube-Client-Version": client["clientVersion"],
+            },
+        )
+        try:
+            payload = json.loads(urllib.request.urlopen(request, timeout=35).read())
+        except Exception:
+            continue
+        found_duration, found_storyboard = parse_player_response(payload)
+        duration = duration or found_duration
+        storyboard = storyboard or found_storyboard
+        if duration and storyboard:
+            break
+    return duration, storyboard
+
+
 def fetch_watch_metadata(video_id: str) -> tuple[int, dict | None]:
     query = urllib.parse.urlencode({"v": video_id, "hl": "en", "bpctr": "9999999999"})
-    page = fetch_browser_bytes(f"https://www.youtube.com/watch?{query}").decode("utf-8", "replace")
-    return parse_watch_metadata_html(page)
+    duration = 0
+    storyboard = None
+    try:
+        page = fetch_browser_bytes(f"https://www.youtube.com/watch?{query}").decode("utf-8", "replace")
+        duration, storyboard = parse_watch_metadata_html(page)
+    except Exception:
+        pass
+    if not duration or not storyboard:
+        fallback_duration, fallback_storyboard = fetch_innertube_metadata(video_id)
+        duration = duration or fallback_duration
+        storyboard = storyboard or fallback_storyboard
+    return duration, storyboard
 
 
 def frame_path(video_id: str, seconds: int) -> Path:
