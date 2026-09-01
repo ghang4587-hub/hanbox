@@ -439,6 +439,12 @@ def enrich_weekly_media(videos: list[dict]) -> None:
             if storyboard and len(frames) < len(FRAME_SECONDS):
                 frames = capture_storyboard_frames(video_id, storyboard)
                 item["framesCapturedAt"] = datetime.now(timezone.utc).isoformat()
+            if storyboard:
+                # Keep the signed storyboard recipe in the feed as a fallback for
+                # browsers that can render the sheets but cannot receive binary
+                # assets from the runner.  The URL is restricted to i.ytimg.com
+                # when the static page normalizes it.
+                item["storyboard"] = storyboard
             if frames:
                 item["frames"] = frames
             print(f"media {video_id}: duration={item.get('d', 0)} frames={len(frames)}")
@@ -637,7 +643,7 @@ def main() -> int:
                     previous[key] = item[key]
             elif item.get("story"):
                 previous["story"] = item["story"]
-            for key in ("t", "c", "d", "v", "p", "source", "sourceUrl"):
+            for key in ("t", "c", "d", "v", "p", "source", "sourceUrl", "storyboard", "frames", "framesCapturedAt"):
                 if item.get(key) not in (None, "", 0) or key in ("t", "c", "p", "source", "sourceUrl"):
                     previous[key] = item.get(key)
         else:
