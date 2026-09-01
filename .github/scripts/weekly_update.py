@@ -68,6 +68,60 @@ def synopsis_from_description(description: str, title: str) -> str:
     return (result or title)[:150].rstrip(" .")
 
 
+def direct_card_copy(title: str, synopsis: str) -> dict[str, str]:
+    """Create plain Chinese card copy without exposing raw feed boilerplate."""
+    text = f"{title} {synopsis}".lower()
+    rules = [
+        (
+            ("auction", "sold"),
+            "主角被绑架后送上地下拍卖台，买下她的人却和她以为已经死去的爱人有关。她必须先逃出去，再查清对方的真实身份。",
+            "画面：主角戴着锁链被推上拍卖台，神秘买家高价拍下她。｜吸睛点：人身危机和身份悬念同时出现。",
+        ),
+        (
+            ("cheat", "betray", "lover", "mistress", "divorce", "ex "),
+            "主角发现最亲近的人背叛了自己。她不再继续忍耐，而是离开旧关系并准备让背叛者付出代价。",
+            "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
+        ),
+        (
+            ("wedding", "bride", "fiancé", "fiance", "altar"),
+            "婚礼现场突然失控，主角被背叛、替嫁或当众抢走。她必须在众目睽睽下做出选择，并查清这场婚礼背后的算计。",
+            "画面：婚礼刚开始就有人闯入或揭穿秘密，所有宾客同时看向主角。｜吸睛点：公开场合翻车，羞辱和反转一眼就懂。",
+        ),
+        (
+            ("baby", "daughter", "son", "mom", "mother", "pregnant"),
+            "孩子或母亲的身份被人隐瞒，主角因此失去了最重要的家人。她开始追查真相，也逼迫伤害家人的人面对后果。",
+            "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
+        ),
+        (
+            ("billionaire", "mafia", "king", "queen", "boss", "heir"),
+            "主角原本被当成普通人或牺牲品，随后却被真正有权势的人选中。隐藏身份曝光后，原先欺负她的人开始后悔。",
+            "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
+        ),
+        (
+            ("apocalypse", "system", "starve", "food", "zombie"),
+            "末日中所有人都在争抢资源，主角却突然得到系统或无限物资。他利用这个优势活下来，并建立自己的势力。",
+            "画面：别人正为一口食物拼命，主角面前却出现大量资源或系统奖励。｜吸睛点：极端资源差不用解释就能看懂。",
+        ),
+        (
+            ("professor", "school", "college", "student", "class"),
+            "主角在校园里遇到一段不能公开的关系。两人越想装作陌生，过去的秘密越容易被其他人发现。",
+            "画面：两人在课堂重新见面并立刻认出对方，却必须假装从未认识。｜吸睛点：观众先知道秘密，会一直等它被戳破。",
+        ),
+        (
+            ("secret", "hidden", "identity", "dragon rider", "superhero"),
+            "所有人都看错了主角的身份。危机出现后，主角露出真正能力，并开始清算曾经羞辱自己的人。",
+            "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。",
+        ),
+    ]
+    for words, story, first_ten in rules:
+        if any(word in text for word in words):
+            return {"story": story, "ten": first_ten}
+    return {
+        "story": "主角一开场就被卷入一场突发冲突。为了摆脱眼前困境，主角必须马上做出选择，并找出幕后真正的操控者。",
+        "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+    }
+
+
 def tags_for(title: str, description: str) -> list[str]:
     haystack = f"{title} {description}".lower()
     rules = [
@@ -129,6 +183,7 @@ def feed_entries(channel: dict) -> list[dict]:
             description = node.text or ""
             break
         hook = synopsis_from_description(description, title)
+        card_copy = direct_card_copy(title, hook)
         if not video_id or not title:
             continue
         result.append(
@@ -140,8 +195,10 @@ def feed_entries(channel: dict) -> list[dict]:
                 "s": hook_score(title, hook),
                 "g": tags_for(title, description),
                 "h": hook,
+                "ten": card_copy["ten"],
+                "story": card_copy["story"],
                 "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-                "m": generic_moments(hook),
+                "m": generic_moments(card_copy["ten"]),
                 "v": parse_views(entry),
                 "p": published,
                 "source": "youtube-atom",
@@ -207,13 +264,17 @@ def main() -> int:
             print(f"warning: API enrichment failed; keeping RSS values: {exc}", file=sys.stderr)
 
     existing = load_existing()
+    for previous in existing.get("videos", []):
+        card_copy = direct_card_copy(str(previous.get("t", "")), str(previous.get("h", "")))
+        previous.setdefault("ten", card_copy["ten"])
+        previous.setdefault("story", card_copy["story"])
     by_id = {item.get("id"): item for item in existing.get("videos", []) if item.get("id")}
     for item in fetched:
         previous = by_id.get(item["id"])
         if previous:
             # Keep any manually edited analysis while refreshing factual fields.
             if previous.get("source") == "youtube-atom":
-                for key in ("s", "g", "h", "u", "m"):
+                for key in ("s", "g", "h", "ten", "story", "u", "m"):
                     previous[key] = item[key]
             for key in ("t", "c", "d", "v", "p", "source", "sourceUrl"):
                 if item.get(key) not in (None, "", 0) or key in ("t", "c", "p", "source", "sourceUrl"):
