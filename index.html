@@ -151,6 +151,7 @@ const isNewThisWeek=x=>{if(!x.p)return false;const start=weekStart(new Date),end
 function attentionFor(x){const g=(x.g||[]).join('');if(/婚礼|出轨|离婚|打脸/.test(g))return'公开羞辱一出现，观众会马上等主角反击。';if(/身份|豪门|反转/.test(g))return'先让所有人看错主角，再快速露出身份反转。';if(/末日|系统|资源/.test(g))return'极端缺口配上开挂能力，资源差一眼就能看懂。';if(/亲情|孩子|母亲/.test(g))return'先伤害最亲近的人，立刻制造心疼和追真相的动力。';return'人物目标和眼前阻碍同时出现，冲突不用解释就能看懂。'}
 function first10For(x){const override=cardCopyOverrides[x.id];if(override?.ten)return override.ten;if(x.ten)return x.ten;const beat=(Array.isArray(x.m)&&x.m[0]?.[1])||x.h||x.t;return `画面：${beat}｜吸睛点：${attentionFor(x)}`}
 function storyFor(x){return cardCopyOverrides[x.id]?.story||x.story||x.h||'主角被卷入一场突发冲突，必须马上做出选择。'}
+function hookFor(x){const value=String(x.h||'').trim();if(/[\u3400-\u9fff]/.test(value))return value;return String(x.hZh||x.story||value||x.t).trim()}
 const fmt=n=>Number(n)>0?`${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`:'时长待抓取';const fmtViews=n=>!n?'播放量待抓取':n>=1e8?`${(n/1e8).toFixed(1)}亿`:n>=1e4?`${(n/1e4).toFixed(1)}万`:n.toLocaleString('zh-CN');const fmtDate=v=>v?new Date(v).toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'}):'时间待抓取';const genderLabel=g=>g==='female'?'女频':g==='male'?'男频':'中性待判';let active='all',currentSrc='',weeklyFeedUpdatedAt='';
 const femaleWords=/\b(she|her|wife|mom|mother|girl|queen|bride|fianc(?:e|é)e|nanny)\b|她|女|妻|母|新娘|王后/gi;const maleWords=/\b(he|his|husband|king|prince|man|hero|boy|brother|father|system|apocalypse|superhero|rival)\b|他|男|夫|父|王子|英雄|兄弟/gi;function inferGender(x){if(leadOverrides[x.id])return leadOverrides[x.id];const text=[x.t,x.h,...x.g].join(' '),f=(text.match(femaleWords)||[]).length,m=(text.match(maleWords)||[]).length;return f-m>=2?'female':m-f>=2?'male':'neutral'}data.forEach(x=>{Object.assign(x,statsById[x.id]||{});x.gender=inferGender(x)});
 function getId(v){try{let u=new URL(v);if(u.hostname.includes('youtu.be'))return u.pathname.slice(1);if(u.pathname.includes('/shorts/'))return u.pathname.split('/shorts/')[1].split('/')[0];if(u.pathname.includes('/embed/'))return u.pathname.split('/embed/')[1].split('/')[0];return u.searchParams.get('v')||''}catch{return ''}}
@@ -168,7 +169,7 @@ document.getElementById('q').oninput=render;document.getElementById('channel').o
 /* Card covers stay visually clean; titles sit in the content area below each image. */
 function render(){
   const q=document.getElementById('q').value.toLowerCase(),c=document.getElementById('channel').value,d=document.getElementById('duration').value,sort=document.getElementById('sort').value,gender=document.getElementById('gender').value;
-  let arr=data.filter(x=>(!q||[x.t,x.c,...x.g,x.h,storyFor(x)].join('').toLowerCase().includes(q))&&(c==='all'||x.c===c)&&(active==='all'||x.g.includes(active))&&(d==='all'||d==='short'&&x.d>0&&x.d<=900||d==='long'&&x.d>900&&x.d<=1800||d==='xl'&&x.d>1800)&&(gender==='all'||x.gender===gender));
+  let arr=data.filter(x=>(!q||[x.t,x.c,...x.g,hookFor(x),storyFor(x)].join('').toLowerCase().includes(q))&&(c==='all'||x.c===c)&&(active==='all'||x.g.includes(active))&&(d==='all'||d==='short'&&x.d>0&&x.d<=900||d==='long'&&x.d>900&&x.d<=1800||d==='xl'&&x.d>1800)&&(gender==='all'||x.gender===gender));
   if(sort==='views')arr.sort((a,b)=>(b.v||0)-(a.v||0));else if(sort==='latest')arr.sort((a,b)=>new Date(b.p||0)-new Date(a.p||0));else if(sort==='shortest')arr.sort((a,b)=>(a.d||Number.MAX_SAFE_INTEGER)-(b.d||Number.MAX_SAFE_INTEGER));else if(sort==='longest')arr.sort((a,b)=>(b.d||0)-(a.d||0));
   const sortLabel={views:'按播放量排序',latest:'按发布时间排序',shortest:'按时长从短到长',longest:'按时长从长到短'}[sort]||'按播放量排序';
   const weeklyCount=data.filter(isNewThisWeek).length;
@@ -176,7 +177,7 @@ function render(){
   const status=document.getElementById('statusText');if(status){const freshness=weeklyFeedUpdatedAt?`数据更新于 ${new Date(weeklyFeedUpdatedAt).toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}`:'每周自动刷新';status.textContent=`本周新增 ${weeklyCount} 条 · ${freshness}`;}
   const sampleCount=document.getElementById('sampleCount');if(sampleCount)sampleCount.textContent=data.length;
   const navCount=document.getElementById('navCount');if(navCount)navCount.textContent=data.length;
-  document.getElementById('grid').innerHTML=arr.length?arr.map(x=>{const isNew=isNewThisWeek(x);return `<article class='card${isNew?' new-week':''}'><div class='cover' style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><span class='time'>${fmt(x.d)}</span>${isNew?`<span class='new-badge'>本周新增</span>`:''}</div><div class='body'><h3 class='card-title'>${x.t}</h3><div class='meta'><span>${fmtViews(x.v)} 播放</span><span class='dot'></span><span>${fmtDate(x.p)} 发布</span><span class='dot'></span><span>${x.c}</span></div><div class='tags'>${x.g.map((t,j)=>`<span class='tag ${j===0?'hot':j===1?'gold':''}'>${t}</span>`).join('')}<span class='tag ${x.gender}'>${genderLabel(x.gender)}</span></div><div class='hook'><b>前10s精析</b><p>${x.h}</p></div><div class='synopsis'><b>故事梗概</b><p>${storyFor(x)}</p></div><div class='foot'><button class='watch' data-i='${data.indexOf(x)}'>▶ 在页内观看</button><span class='score'>前10s吸睛度 ${x.s}</span></div></div></article>`}).join(''):`<div class='empty'>没有匹配结果，试试“反转”或切换筛选条件。</div>`;
+   document.getElementById('grid').innerHTML=arr.length?arr.map(x=>{const isNew=isNewThisWeek(x);return `<article class='card${isNew?' new-week':''}'><div class='cover' style="background-image:url('https://i.ytimg.com/vi/${x.id}/hqdefault.jpg')"><span class='time'>${fmt(x.d)}</span>${isNew?`<span class='new-badge'>本周新增</span>`:''}</div><div class='body'><h3 class='card-title'>${x.t}</h3><div class='meta'><span>${fmtViews(x.v)} 播放</span><span class='dot'></span><span>${fmtDate(x.p)} 发布</span><span class='dot'></span><span>${x.c}</span></div><div class='tags'>${x.g.map((t,j)=>`<span class='tag ${j===0?'hot':j===1?'gold':''}'>${t}</span>`).join('')}<span class='tag ${x.gender}'>${genderLabel(x.gender)}</span></div><div class='hook'><b>前10s精析</b><p>${hookFor(x)}</p></div><div class='synopsis'><b>故事梗概</b><p>${storyFor(x)}</p></div><div class='foot'><button class='watch' data-i='${data.indexOf(x)}'>▶ 在页内观看</button><span class='score'>前10s吸睛度 ${x.s}</span></div></div></article>`}).join(''):`<div class='empty'>没有匹配结果，试试“反转”或切换筛选条件。</div>`;
   document.querySelectorAll('.watch').forEach(b=>b.onclick=e=>{e.stopPropagation();open(+b.dataset.i)});
 }
 /* Timeline nodes use YouTube preview frames and seek the embedded player on click. */
@@ -214,7 +215,7 @@ function paintStoryboardFrames(){
   })
 }
 function genericMomentsFor(x){
-  return [['00:00',x.h||x.t],['00:58','冲突升级，隐藏关系或真实目的被揭开。'],['01:46','对立双方被迫正面交锋，情绪开始翻面。'],['02:43','新线索出现，留下下一集悬念。']]
+  return [['00:00',hookFor(x)],['00:58','冲突升级，隐藏关系或真实目的被揭开。'],['01:46','对立双方被迫正面交锋，情绪开始翻面。'],['02:43','新线索出现，留下下一集悬念。']]
 }
 function open(i){
   const x=data[i],f=flowFor(x);
@@ -222,7 +223,7 @@ function open(i){
   player(`https://www.youtube.com/watch?v=${x.id}`,document.getElementById('mPlayer'));
   document.getElementById('mCover').innerHTML=`<img src="https://i.ytimg.com/vi/${x.id}/hqdefault.jpg" alt="${x.t} 封面"><b>${x.t}</b>`;
   document.getElementById('mMeta').innerHTML=`<span>${x.c}</span><span class="dot"></span><span>总时长 ${fmt(x.d)}</span><span class="dot"></span><span>${x.g.join(' · ')}</span><span class="dot"></span><a href="https://www.youtube.com/watch?v=${x.id}" target="_blank" style="color:var(--blue)">YouTube 原片 ↗</a>`;
-  const moments=Array.isArray(x.m)&&x.m.length?x.m:genericMomentsFor(x);
+  const moments=(Array.isArray(x.m)&&x.m.length?x.m:genericMomentsFor(x)).map((z,index)=>index===0?[z[0],hookFor(x)]:z);
   const describedFrames=moments.map((z,index)=>{const seconds=timelineSeconds(z[0]),thumbIndex=Math.min(index,3),thumb=`https://i.ytimg.com/vi/${x.id}/${thumbIndex}.jpg`;return `<div class="moment" data-seconds="${seconds}" data-sort-seconds="${seconds}"><time>${z[0]}</time><div class="frame-shot"><img src="${thumb}" alt="${x.t} ${z[0]} 画面" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x.id}/hqdefault.jpg'"><span class="frame-play">▶</span></div><p>${z[1]}</p></div>`}).join('');
   const timeline=document.getElementById('timeline');
   timeline.innerHTML=describedFrames+extraFramesFor(x);
@@ -245,15 +246,16 @@ function normalizeWeeklyVideo(raw){
   const hook=cleanFeedText(raw.h||raw.hook||raw.description||title).slice(0,150);
   const ten=cleanFeedText(raw.ten||raw.first10||'').slice(0,220);
   const story=cleanFeedText(raw.story||raw.synopsis||'').slice(0,220);
+  const hookZh=cleanFeedText(raw.hZh||raw.hookZh||'').slice(0,220);
   const tags=Array.isArray(raw.g)?raw.g:[];
   const moments=Array.isArray(raw.m)?raw.m.map(z=>[cleanFeedText(z?.[0]||''),cleanFeedText(z?.[1]||'')]).filter(z=>z[0]&&z[1]):[];
-  return {id,t:title,c:cleanFeedText(raw.c||raw.channel||'YouTube 官方账号'),d:Number(raw.d)||0,s:Math.max(72,Math.min(96,Number(raw.s)||80)),g:tags.map(x=>cleanFeedText(x)).filter(Boolean).slice(0,3),h:hook,ten,story,u:cleanFeedText(raw.u||'先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。'),m:moments.length?moments:null,v:Number(raw.v)||0,p:raw.p||'',source:raw.source||'weekly-feed'}
+  return {id,t:title,c:cleanFeedText(raw.c||raw.channel||'YouTube 官方账号'),d:Number(raw.d)||0,s:Math.max(72,Math.min(96,Number(raw.s)||80)),g:tags.map(x=>cleanFeedText(x)).filter(Boolean).slice(0,3),h:hook,hZh:hookZh,ten,story,u:cleanFeedText(raw.u||'先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。'),m:moments.length?moments:null,v:Number(raw.v)||0,p:raw.p||'',source:raw.source||'weekly-feed'}
 }
 async function loadWeeklyFeed(){
   try{
     const response=await fetch(`data/weekly.json?v=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);
     const payload=await response.json();const incoming=Array.isArray(payload.videos)?payload.videos.map(normalizeWeeklyVideo).filter(Boolean):[];const byId=new Map(data.map(item=>[item.id,item]));
-    incoming.forEach(item=>{const existing=byId.get(item.id);if(existing){if(item.v)existing.v=item.v;if(item.p)existing.p=item.p;if(item.d)existing.d=item.d;if(item.ten)existing.ten=item.ten;if(item.story)existing.story=item.story}else{data.push(item);byId.set(item.id,item)}});
+    incoming.forEach(item=>{const existing=byId.get(item.id);if(existing){if(item.v)existing.v=item.v;if(item.p)existing.p=item.p;if(item.d)existing.d=item.d;if(item.ten)existing.ten=item.ten;if(item.hZh)existing.hZh=item.hZh;if(item.story)existing.story=item.story}else{data.push(item);byId.set(item.id,item)}});
     data.forEach(item=>{Object.assign(item,statsById[item.id]||{});item.gender=inferGender(item)});
     weeklyFeedUpdatedAt=payload.generatedAt||'';render();
   }catch(error){console.info('Weekly feed unavailable; using built-in samples.',error)}
