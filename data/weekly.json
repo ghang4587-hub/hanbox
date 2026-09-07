@@ -1,47 +1,8 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-07T01:07:36.911443+00:00",
+  "generatedAt": "2026-09-07T07:10:23.784077+00:00",
   "source": "YouTube public channel feeds",
   "videos": [
-    {
-      "id": "DkbopE4aMqk",
-      "t": "I Lost Ten Years and Married My Rival💍Mommy, You Forgot Me and Daddy!❤️",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "复仇",
-        "豪门",
-        "身份反转"
-      ],
-      "h": "十年后，雷吉娜醒来，发现自己嫁给了死敌莱纳斯，抚养了一个女儿，并在操纵下犯了无数错误。",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "十年后，雷吉娜醒来，发现自己嫁给了死敌莱纳斯，抚养了一个女儿，并在操纵下犯了无数错误。"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 189140,
-      "p": "2026-08-28T13:00:45+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=DkbopE4aMqk",
-      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
-      "story": "十年后，雷吉娜醒来，发现自己嫁给了死敌莱纳斯，抚养了一个女儿，并被无情的猎人操纵，犯下了无数错误。意识到真相后，她与莱纳斯联手反击，找回被遗忘的亲人。",
-      "hEn": "Regina wakes up ten years later to find herself married to her sworn rival Linus, raising a daughter, and manipulated into making countless mistakes b"
-    },
     {
       "id": "VIk3M40d-sE",
       "t": "I Was Forced to Replace the Bride of a Ruthless Mafia King! 🩸 | DramaBox",
@@ -53,12 +14,12 @@
         "亲情",
         "冲突开场"
       ],
-      "h": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。 Victoria is set to marry Dominic Castellano,",
+      "h": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。 Victoria is set to marry Dominic Castellano,"
+          "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，"
         ],
         [
           "00:58",
@@ -73,18 +34,22 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 186840,
+      "v": 179059,
       "p": "2026-08-27T12:00:20+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=VIk3M40d-sE",
       "ten": "画面：婚礼刚开始就有人闯入或揭穿秘密，所有宾客同时看向主角。｜吸睛点：公开场合翻车，羞辱和反转一眼就懂。",
       "story": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，多米尼克·卡斯特拉诺是一位残忍的黑手党国王，据传杀死了他的最后一任妻子。但当维多利亚逃跑时，多米尼克的杀手威胁",
-      "hEn": "On her half-sister Victoria's wedding day, 25-year-old nurse Lily Watson is forced into a deadly bargain. Victoria is set to marry Dominic Castellano,"
+      "market": "overseas",
+      "focus": true,
+      "platform": "DramaBox"
     },
     {
       "id": "KqxdCWtzQY8",
       "t": "They Called Me a Worthless Healer. Then They Saw Who Was on the Throne... 🔥 | DramaBox",
       "c": "DramaBox 官方",
+      "market": "overseas",
+      "platform": "DramaBox",
       "d": 0,
       "s": 78,
       "g": [
@@ -115,15 +80,18 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 74300,
+      "v": 75490,
       "p": "2026-09-02T14:00:36+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=KqxdCWtzQY8"
+      "sourceUrl": "https://www.youtube.com/watch?v=KqxdCWtzQY8",
+      "focus": false
     },
     {
       "id": "UXkydz7nlGY",
       "t": "I Loved Her for 3 Years as Her Cover. Then She Regretted Everything. 💔 | DramaBox",
       "c": "DramaBox 官方",
+      "market": "overseas",
+      "platform": "DramaBox",
       "d": 0,
       "s": 78,
       "g": [
@@ -154,15 +122,18 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 73662,
+      "v": 75264,
       "p": "2026-09-04T13:00:12+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=UXkydz7nlGY"
+      "sourceUrl": "https://www.youtube.com/watch?v=UXkydz7nlGY",
+      "focus": false
     },
     {
       "id": "Y8Q28_jQvig",
       "t": "I Was Just Her Stand-In Bride, But He Refused to Let Me Leave the Bed. 🔥🍷 | DramaBox",
       "c": "DramaBox 官方",
+      "market": "overseas",
+      "platform": "DramaBox",
       "d": 0,
       "s": 88,
       "g": [
@@ -170,15 +141,15 @@
         "亲情",
         "冲突开场"
       ],
-      "h": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼当天被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，",
+      "h": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，",
       "hEn": "On her half-sister Victoria's wedding day, 25-year-old nurse Lily Watson is forced into a deadly bargain. Victoria is set to marry Dominic Castellano,",
       "ten": "画面：婚礼刚开始就有人闯入或揭穿秘密，所有宾客同时看向主角。｜吸睛点：公开场合翻车，羞辱和反转一眼就懂。",
-      "story": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼当天被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，多米尼克·卡斯特拉诺是一位残忍的黑手党国王，据传杀死了他的最后一任妻子。但当维多利亚逃跑时，多米尼克的杀手威胁",
+      "story": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，多米尼克·卡斯特拉诺是一位残忍的黑手党国王，据传杀死了他的最后一任妻子。但当维多利亚逃跑时，多米尼克的杀手威胁",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼当天被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，"
+          "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，"
         ],
         [
           "00:58",
@@ -193,10 +164,11 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 70713,
+      "v": 70941,
       "p": "2026-09-03T14:00:28+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=Y8Q28_jQvig"
+      "sourceUrl": "https://www.youtube.com/watch?v=Y8Q28_jQvig",
+      "focus": true
     },
     {
       "id": "AcDxCKlZtSY",
@@ -229,130 +201,15 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 64706,
+      "v": 64215,
       "p": "2026-08-26T13:30:09+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=AcDxCKlZtSY",
       "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
-      "story": "她把自己的心交给了他，只是为了赢得她残忍的继妹的棋子。心碎但才华横溢的守护者艾莉走开了，直接进入了一位等待她两个世纪的古老原初的奉献之中。看着她与一个远比她优越的男人——她的前任——一起统治",
-      "hEn": "She gave him her heart, only to be used as a pawn to win her cruel stepsister. Shattered, gifted Keeper Allie walks away—straight into the devotion of"
-    },
-    {
-      "id": "1QJvGAUMYGA",
-      "t": "The Husband She Despised Built Her Everything😱Her Kept Husband Was the King of Everything💔",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "复仇",
-        "豪门",
-        "身份反转"
-      ],
-      "h": "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。然而她却",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。然而她却"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 47107,
-      "p": "2026-08-27T15:00:01+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=1QJvGAUMYGA",
-      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
-      "story": "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。但她却把他当作一个无用的仆人。合同到期后，埃夫伦离开——留下莱拉去发现",
-      "hEn": "Bound by a six-year promise, the powerful genie Evren hides his identity and protects his wife, Layla, saving her company from every crisis. Yet she t"
-    },
-    {
-      "id": "uB-5XR26to0",
-      "t": "[highlight]I Sacrificed Everything to Save His Life. He Made Me Pay with Our Son 💔😭 | DramaBox",
-      "c": "DramaBox 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "复仇",
-        "亲情",
-        "冲突开场"
-      ],
-      "h": "米娅为垂死的爱人万斯牺牲了一切，却不知道他是云城最伟大的继承人。为了把未来还给他，米娅决定离开",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "米娅为垂死的爱人万斯牺牲了一切，却不知道他是云城最伟大的继承人。为了把未来还给他，米娅决定离开"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 44561,
-      "p": "2026-08-28T16:00:04+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=uB-5XR26to0",
-      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
-      "story": "米娅为垂死的爱人万斯牺牲了一切，却不知道他是云城最伟大的继承人。为了把未来还给他，米娅毅然离开，没有告诉他自己怀孕了。多年后，孩子的悲惨命运再次与他们相遇。叶",
-      "hEn": "Mia sacrifices everything for her dying lover Vance, never knowing he is Cloud City's greatest heir. To return the future to him, Mia walks away resol"
-    },
-    {
-      "id": "fuM-slY--64",
-      "t": "I Married the Man His Ex Couldn't Appreciate💍Top Gear Guy Finds His Mrs. Right🏎️",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 83,
-      "g": [
-        "身份反转",
-        "冲突开场",
-        "YouTube"
-      ],
-      "h": "为了逃离强迫婚姻，她冲动地嫁给了一名被前男友抛弃的机械师。事实证明，他是一个秘密的赛车传奇人物和一个巨大的继承人！当他有毒的时候",
-      "hEn": "Fleeing a forced marriage, she impulsively wed a mechanic dumped by his ex. Turns out, he’s a secret racing legend and a massive heir! When his toxic",
-      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
-      "story": "为了逃离强迫婚姻，她冲动地嫁给了一名被前男友抛弃的机械师。事实证明，他是一个秘密的赛车传奇人物和一个巨大的继承人！当他有毒的前任求他回来时，他紧紧握住她的手，再也没有回头",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "为了逃离强迫婚姻，她冲动地嫁给了一名被前男友抛弃的机械师。事实证明，他是一个秘密的赛车传奇人物和一个巨大的继承人！当他有毒的时候"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 43215,
-      "p": "2026-09-04T11:00:22+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=fuM-slY--64"
+      "story": "她把自己的心交给了他，却成了他赢得残忍继妹的棋子。心碎但才华横溢的守护者艾莉走开了，直接进入了一位等待她两个世纪的古老原初的奉献之中。看着她与一个远比她优越的男人——她的前任——一起统治",
+      "market": "overseas",
+      "focus": false,
+      "platform": "DramaBox"
     },
     {
       "id": "fOSzB-9uNm0",
@@ -390,162 +247,10 @@
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=fOSzB-9uNm0",
       "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
-      "story": "米娅为垂死的爱人万斯牺牲了一切，却不知道他是云城最伟大的继承人。为了把未来还给他，米娅决定离开"
-    },
-    {
-      "id": "nJ6asBjQi34",
-      "t": "The Drunk Nobody Was the Legendary Dragon Rider🐉The Hidden Dragon Rider Returns for Justice⚔️",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "豪门",
-        "身份反转",
-        "冲突开场"
-      ],
-      "h": "📺全集👉 🎬剧名：隐藏的龙骑回归正义👀简介：传说中的龙骑继承者伪装成酒鬼生活",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "📺全集👉 🎬剧名：隐藏的龙骑回归正义👀简介：传说中的龙骑继承者伪装成酒鬼生活"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 28824,
-      "p": "2026-08-26T11:00:20+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=nJ6asBjQi34",
-      "ten": "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。",
-      "story": "传说中的龙骑士继承者伪装成酒鬼生活"
-    },
-    {
-      "id": "EDP3sLP8W0o",
-      "t": "Her Useless Husband Was a Powerful Genie😱Her Kept Husband Was the King of Everything💔",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "复仇",
-        "豪门",
-        "身份反转"
-      ],
-      "h": "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。然而她却",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。然而她却"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 27506,
-      "p": "2026-08-30T13:00:10+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=EDP3sLP8W0o",
-      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
-      "story": "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。但她却把他当作一个无用的仆人。合同到期后，埃夫伦离开——留下莱拉去发现",
-      "hEn": "Bound by a six-year promise, the powerful genie Evren hides his identity and protects his wife, Layla, saving her company from every crisis. Yet she t"
-    },
-    {
-      "id": "BXlst9na9CE",
-      "t": "She Returned to Make the Beasts Kneel👑The Villainess Pays Her Debt in Bed💋",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "复仇",
-        "豪门",
-        "冲突开场"
-      ],
-      "h": "醒来后，公主发誓要驯服她曾经打败的四只野兽。月光下未驯服的狼，大腿上高高的吸血鬼痕迹，狮子的头",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "醒来后，公主发誓要驯服她曾经打败的四只野兽。月光下未驯服的狼，大腿上高高的吸血鬼痕迹，狮子的头"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 25676,
-      "p": "2026-08-28T11:00:36+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=BXlst9na9CE",
-      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
-      "story": "醒来后，公主发誓要驯服她曾经打败的四只野兽。月光下未驯服的狼，大腿上高高的吸血鬼印记，狮子的沉重抚摸，锁骨上的海妖泪水……当猎物变成掠夺者时，在她的王座和床铺之间——谁能得到",
-      "hEn": "Awakened, the Princess vows to tame the four beasts she once broke. A wolf untamed under the moonlight, vampire marks high on her thighs, a lion’s hea"
-    },
-    {
-      "id": "SAEL_zdaPNE",
-      "t": "I Married Into the Family Where Women Die💀The Billionaire's Baby-Making Cowgirl👑",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 83,
-      "g": [
-        "豪门",
-        "亲情",
-        "末日"
-      ],
-      "h": "黛西梅来自一个神奇的村庄，那里的女性天生拥有非凡的生育能力。她出人意料地嫁给了亿万富翁继承人塞拉斯",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "黛西梅来自一个神奇的村庄，那里的女性天生拥有非凡的生育能力。她出人意料地嫁给了亿万富翁继承人塞拉斯"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 24528,
-      "p": "2026-08-27T13:00:31+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=SAEL_zdaPNE",
-      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
-      "story": "黛西梅来自一个神奇的村庄，那里的女性天生拥有非凡的生育能力。她出人意料地嫁给了亿万富翁继承人塞拉斯·斯特林，而他的家族迫切需要一个继承人。但英镑却被诅咒了。每个女人都背负着自己的",
-      "hEn": "Daisy Mae comes from a magical village where women are naturally blessed with extraordinary fertility. She unexpectedly marries billionaire heir Silas"
+      "story": "米娅为垂死的爱人万斯牺牲了一切，却不知道他是云城最伟大的继承人。为了把未来还给他，米娅决定离开",
+      "market": "overseas",
+      "focus": true,
+      "platform": "DramaBox"
     },
     {
       "id": "Bup3USA1pT4",
@@ -578,13 +283,15 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 23936,
+      "v": 23555,
       "p": "2026-08-27T13:00:39+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=Bup3USA1pT4",
       "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
       "story": "在学校的最后一天，害羞的斯凯与她最大的恶霸做了一个危险的赌注：她将在整个夏天向学校里最性感的男人失去童贞。绝望的她甚至从未被亲吻过，她向她不可抗拒的性感邻居格雷森寻求帮助",
-      "hEn": "On the last day of school, shy Skye makes a dangerous bet with her biggest bully: she’ll lose her virginity to the hottest guy in school over the summ"
+      "market": "overseas",
+      "focus": false,
+      "platform": "DramaBox"
     },
     {
       "id": "-K64M9WIefs",
@@ -617,90 +324,15 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 23024,
+      "v": 22345,
       "p": "2026-08-28T13:45:06+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=-K64M9WIefs",
       "ten": "画面：两人在课堂重新见面并立刻认出对方，却必须假装从未认识。｜吸睛点：观众先知道秘密，会一直等它被戳破。",
       "story": "刻板的新秀汉娜从未想到会爱上大学橄榄球队鲁莽、不可抗拒的队长凯瑟琳。当被迫共用一个座位，后来又共用一个房间时，他们禁忌的吸引力就变得无法隐藏。但凯瑟琳的秘密痴迷可能",
-      "hEn": "Straight-laced rookie Hannah never expects to fall for Katherine, the college football team's reckless, irresistible captain. When forced to share a s"
-    },
-    {
-      "id": "oFl6yiRrTcE",
-      "t": "I Married a Billionaire With a Deadly Curse💀The Billionaire's Baby-Making Cowgirl👑#goodshort",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 88,
-      "g": [
-        "豪门",
-        "亲情",
-        "末日"
-      ],
-      "h": "📺全集👉 🎬剧名：亿万富翁的生娃女牛仔 👀简介：黛西梅来自一个神奇的村庄，那里的女人天生美丽",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "📺全集👉 🎬剧名：亿万富翁的生娃女牛仔 👀简介：黛西梅来自一个神奇的村庄，那里的女人天生美丽"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 21810,
-      "p": "2026-08-24T11:13:52+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=oFl6yiRrTcE",
-      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
-      "story": "黛西梅来自一个神奇的村庄，那里的女性天生美丽"
-    },
-    {
-      "id": "h7CDf24MQkY",
-      "t": "My Enemy Became My Husband While I Forgot💍Mommy, You Forgot Me and Daddy!❤️",
-      "c": "GoodShort 官方",
-      "d": 1640,
-      "s": 78,
-      "g": [
-        "复仇",
-        "豪门",
-        "身份反转"
-      ],
-      "h": "十年后，雷吉娜醒来，发现自己嫁给了死敌莱纳斯，抚养了一个女儿，并在操纵下犯了无数错误。",
-      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
-      "story": "十年后，雷吉娜醒来，发现自己嫁给了死敌莱纳斯，抚养了一个女儿，并被无情的猎人操纵，犯下了无数错误。意识到真相后，她与莱纳斯联手反击，找回被遗忘的亲人。",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "十年后，雷吉娜醒来，发现自己嫁给了死敌莱纳斯，抚养了一个女儿，并在操纵下犯了无数错误。"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 20947,
-      "p": "2026-08-31T11:00:32+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=h7CDf24MQkY",
-      "hEn": "Regina wakes up ten years later to find herself married to her sworn rival Linus, raising a daughter, and manipulated into making countless mistakes b"
+      "market": "overseas",
+      "focus": false,
+      "platform": "DramaBox"
     },
     {
       "id": "nkaCnhr_2Tw",
@@ -738,46 +370,10 @@
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=nkaCnhr_2Tw",
       "ten": "画面：两人在课堂重新见面并立刻认出对方，却必须假装从未认识。｜吸睛点：观众先知道秘密，会一直等它被戳破。",
-      "story": "在学校的最后一天，害羞的斯凯与她最大的恶霸做了一个危险的赌注：她将在整个夏天向学校最性感的男人失去童贞"
-    },
-    {
-      "id": "2cBsv0BCNNA",
-      "t": "The Legendary Dragon Rider Hid as a Drunk🐉The Hidden Dragon Rider Returns for Justice⚔️",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "豪门",
-        "身份反转",
-        "冲突开场"
-      ],
-      "h": "传说中的龙骑士继承者伪装成一个醉酒的无名小卒。当野蛮人闯入皇家选王仪式寻衅滋事时，",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "传说中的龙骑士继承者伪装成一个醉酒的无名小卒。当野蛮人闯入皇家选王仪式寻衅滋事时，"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 19721,
-      "p": "2026-08-29T15:00:05+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=2cBsv0BCNNA",
-      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
-      "story": "传说中的龙骑士继承者伪装成一个醉酒的无名小卒。当野蛮人闯入皇家选王仪式寻衅滋事时，大法师看穿了他的外表和隐藏的力量。随着野心勃勃的贵族密谋和冲突，一场史诗般的战争即将展开。",
-      "hEn": "The legendary Dragon Rider successor lives disguised as a drunken nobody. When barbarians storm the royal king-selection ceremony seeking trouble, the"
+      "story": "在学校的最后一天，害羞的斯凯与她最大的恶霸做了一个危险的赌注：她将在整个夏天向学校最性感的男人失去童贞",
+      "market": "overseas",
+      "focus": false,
+      "platform": "DramaBox"
     },
     {
       "id": "tXWIy3CZ9qs",
@@ -810,57 +406,23 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 19393,
+      "v": 19089,
       "p": "2026-08-29T15:00:25+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=tXWIy3CZ9qs",
       "ten": "画面：主角戴着锁链被推上拍卖台，神秘买家高价拍下她。｜吸睛点：人身危机和身份悬念同时出现。",
       "story": "男友塞巴斯蒂安在一次可怕的车祸中救了她，五年后，克洛伊被绑架并在地下拍卖会上出售，结果被洛伦佐·比安奇买下，洛伦佐·比安奇是一个冷酷的黑手党继承人，长着塞巴斯蒂安的脸，没有他的记忆。克洛伊认识这个人",
-      "hEn": "Five years after her boyfriend Sebastian died saving her in a horrific crash, Chloe is kidnapped and sold at an underground auction—only to be bought"
-    },
-    {
-      "id": "sKylt_aQhU8",
-      "t": "I Was Determined to Beat My Hockey Rival. Then He Stole My Heart. 🏒 | DramaBox",
-      "c": "DramaBox 官方",
-      "d": 0,
-      "s": 78,
-      "g": [
-        "亲情",
-        "冲突开场",
-        "YouTube"
-      ],
-      "h": "当失败者卢克对对手菲利克斯的痴迷跨越了仇恨和仇恨之间的界限时，一场激烈的曲棍球竞争变得危险而亲密。",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "当失败者卢克对对手菲利克斯的痴迷跨越了仇恨和仇恨之间的界限时，一场激烈的曲棍球竞争变得危险而亲密。"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 18300,
-      "p": "2026-08-24T12:00:12+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=sKylt_aQhU8",
-      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
-      "story": "当失败者卢克对对手菲利克斯的痴迷跨越了仇恨和仇恨之间的界限时，一场激烈的曲棍球竞争变得危险而亲密。"
+      "market": "overseas",
+      "focus": true,
+      "platform": "DramaBox"
     },
     {
       "id": "fzqtlsG6LzY",
       "t": "He Taught Me How to Win His Best Friend. Then He Stole the Kiss 🔥 | DramaBox",
       "c": "DramaBox 官方",
-      "d": 1143,
+      "market": "overseas",
+      "platform": "DramaBox",
+      "d": 0,
       "s": 78,
       "g": [
         "亲情",
@@ -868,6 +430,7 @@
         "冲突开场"
       ],
       "h": "在学校的最后一天，害羞的斯凯与她最大的恶霸做了一个危险的赌注：她将在整个夏天向学校最性感的男人失去童贞",
+      "hEn": "On the last day of school, shy Skye makes a dangerous bet with her biggest bully: she’ll lose her virginity to the hottest guy in school over the summ",
       "ten": "画面：两人在课堂重新见面并立刻认出对方，却必须假装从未认识。｜吸睛点：观众先知道秘密，会一直等它被戳破。",
       "story": "在学校的最后一天，害羞的斯凯与她最大的恶霸做了一个危险的赌注：她将在整个夏天向学校里最性感的男人失去童贞。绝望的她甚至从未被亲吻过，她向她不可抗拒的性感邻居格雷森寻求帮助",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
@@ -889,95 +452,19 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 17447,
+      "v": 17529,
       "p": "2026-08-31T12:00:08+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=fzqtlsG6LzY",
-      "hEn": "On the last day of school, shy Skye makes a dangerous bet with her biggest bully: she’ll lose her virginity to the hottest guy in school over the summ"
-    },
-    {
-      "id": "jF8IPeVHml0",
-      "t": "My Fluffy Puppy Is an Alpha CEO🐾Big Bad Alpha CEO is My Good Boy🐺",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 83,
-      "g": [
-        "豪门",
-        "身份反转",
-        "冲突开场"
-      ],
-      "h": "梅西以为她救了一只流浪小狗。但当她无情的亿万富翁老板把她按在沙发上，狼耳朵抽动着，叫她“主人……”时，她",
-      "hEn": "Maisie thought she’d saved a stray pup. But when her ruthless billionaire boss pins her to the couch, wolf ears twitching, calling her \"Master...\" Her",
-      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
-      "story": "梅西以为她救了一只流浪小狗。但当她无情的亿万富翁老板把她按在沙发上，狼耳朵抽动着，喊她“主人……”时，她下巴都掉下来了。天啊——大坏蛋阿尔法首席执行官是我的毛茸茸的小狗！",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "梅西以为她救了一只流浪小狗。但当她无情的亿万富翁老板把她按在沙发上，狼耳朵抽动着，叫她“主人……”时，她"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 17434,
-      "p": "2026-09-04T13:00:05+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=jF8IPeVHml0"
-    },
-    {
-      "id": "eHXY8V_0cRo",
-      "t": "She Faked Her Death to Escape Her Mafia Husband👠I Walked Away You Wasted Away👑",
-      "c": "GoodShort 官方",
-      "d": 0,
-      "s": 88,
-      "g": [
-        "复仇",
-        "豪门",
-        "身份反转"
-      ],
-      "h": "她为她的黑手党首席执行官丈夫付出了七年的时间，却发现了他最终的背叛：与他的养姐妹的秘密第二家庭。逃离他的毒素",
-      "hEn": "She gave seven years to her mafia CEO husband, only to uncover his ultimate betrayal: a secret second family with his foster sister. Escaping his toxi",
-      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
-      "story": "她为她的黑手党首席执行官丈夫付出了七年的时间，却发现了他最终的背叛：与他的养姐妹的秘密第二家庭。她通过一场伪造的飞机失事逃离了他有毒的婚姻，埋葬了自己痛苦的过去。现在爱情正式不再讨论了，她",
-      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-      "m": [
-        [
-          "00:00",
-          "她为她的黑手党首席执行官丈夫付出了七年的时间，却发现了他最终的背叛：与他的养姐妹的秘密第二家庭。逃离他的毒素"
-        ],
-        [
-          "00:58",
-          "冲突升级，隐藏关系或真实目的被揭开。"
-        ],
-        [
-          "01:46",
-          "对立双方被迫正面交锋，情绪开始翻面。"
-        ],
-        [
-          "02:43",
-          "新线索出现，留下下一集悬念。"
-        ]
-      ],
-      "v": 17261,
-      "p": "2026-09-05T13:00:28+00:00",
-      "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=eHXY8V_0cRo"
+      "focus": false
     },
     {
       "id": "97U_bp8Li_w",
       "t": "My Fiancé Sacrificed Me to the Dragon King. But the Monster Was My True Mate 💔 | DramaBox",
       "c": "DramaBox 官方",
-      "d": 1583,
+      "market": "overseas",
+      "platform": "DramaBox",
+      "d": 0,
       "s": 78,
       "g": [
         "复仇",
@@ -985,6 +472,7 @@
         "身份反转"
       ],
       "h": "被未婚夫背叛并献给龙王作为祭品的无助狐狸莱拉期待着死亡——直到她发现可怕的国王德莱文正在",
+      "hEn": "Betrayed by her fiancé and offered to the Dragon King as a sacrifice, powerless fox Lyra expects death—until she discovers the feared king, Draven, is",
       "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
       "story": "被未婚夫背叛并献给龙王作为祭品的无能为力的狐狸莱拉期待着死亡，直到她发现可怕的国王德莱文就是拯救她的神秘伴侣。当敌人密谋反对他们时，莱拉唤醒了隐藏的冰霜力量和无花果",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
@@ -1006,15 +494,433 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 15705,
+      "v": 15818,
       "p": "2026-08-31T14:00:28+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=97U_bp8Li_w",
-      "hEn": "Betrayed by her fiancé and offered to the Dragon King as a sacrifice, powerless fox Lyra expects death—until she discovers the feared king, Draven, is"
+      "focus": false
     },
     {
-      "id": "UndefzC_VTM",
-      "t": "She Was Their Prey. Now She's Their Queen👑The Villainess Pays Her Debt in Bed💋#goodshort",
+      "id": "DkbopE4aMqk",
+      "t": "I Lost Ten Years and Married My Rival💍Mommy, You Forgot Me and Daddy!❤️",
+      "c": "GoodShort 官方",
+      "d": 1322,
+      "s": 78,
+      "g": [
+        "亲情",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "我迷失了十年，嫁给了情敌💍妈咪，你忘了我和爹地！❤️",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "我迷失了十年，嫁给了情敌💍妈咪，你忘了我和爹地！❤️"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 238000,
+      "p": "2026-08-29T06:55:44.611650+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=DkbopE4aMqk",
+      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
+      "story": "我迷失了十年，嫁给了情敌💍妈咪，你忘了我和爹地！❤️",
+      "market": "overseas",
+      "focus": true,
+      "hEn": "I Lost Ten Years and Married My Rival💍Mommy, You Forgot Me and Daddy!❤️",
+      "platform": "GoodShort"
+    },
+    {
+      "id": "ecopH193lDM",
+      "t": "I Married the Man His Ex Couldn't Appreciate💍Top Gear Guy Finds His Mrs. Right🏎️",
+      "c": "GoodShort 官方",
+      "market": "overseas",
+      "platform": "GoodShort",
+      "d": 1443,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "我嫁给了他的前夫无法欣赏的男人💍Top Gear 男人找到了他的真命天子🏎️",
+      "hEn": "I Married the Man His Ex Couldn't Appreciate💍Top Gear Guy Finds His Mrs. Right🏎️",
+      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
+      "story": "我嫁给了他的前夫无法欣赏的男人💍Top Gear 男人找到了他的真命天子🏎️",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "我嫁给了他的前夫无法欣赏的男人💍Top Gear 男人找到了他的真命天子🏎️"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 215000,
+      "p": "2026-09-01T06:55:36.898162+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=ecopH193lDM",
+      "focus": false
+    },
+    {
+      "id": "EDP3sLP8W0o",
+      "t": "Her Useless Husband Was a Powerful Genie😱Her Kept Husband Was the King of Everything💔",
+      "c": "GoodShort 官方",
+      "d": 2204,
+      "s": 78,
+      "g": [
+        "豪门",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "她无用的丈夫是强大的精灵😱她的被养的丈夫是万物之王💔",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "她无用的丈夫是强大的精灵😱她的被养的丈夫是万物之王💔"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 139000,
+      "p": "2026-08-31T06:55:39.490126+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=EDP3sLP8W0o",
+      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
+      "story": "她无用的丈夫是强大的精灵😱她的被养的丈夫是万物之王💔",
+      "market": "overseas",
+      "focus": false,
+      "hEn": "Her Useless Husband Was a Powerful Genie😱Her Kept Husband Was the King of Everything💔",
+      "platform": "GoodShort"
+    },
+    {
+      "id": "h7CDf24MQkY",
+      "t": "My Enemy Became My Husband While I Forgot💍Mommy, You Forgot Me and Daddy!❤️",
+      "c": "GoodShort 官方",
+      "market": "overseas",
+      "platform": "GoodShort",
+      "d": 1640,
+      "s": 78,
+      "g": [
+        "亲情",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "当我忘记的时候，我的敌人变成了我的丈夫💍妈妈，你忘记了我和爸爸！❤️",
+      "hEn": "My Enemy Became My Husband While I Forgot💍Mommy, You Forgot Me and Daddy!❤️",
+      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
+      "story": "当我忘记的时候，我的敌人变成了我的丈夫💍妈妈，你忘记了我和爸爸！❤️",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "当我忘记的时候，我的敌人变成了我的丈夫💍妈妈，你忘记了我和爸爸！❤️"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 77000,
+      "p": "2026-09-01T06:55:37.743612+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=h7CDf24MQkY",
+      "focus": false
+    },
+    {
+      "id": "tSQqcZ2qxEo",
+      "t": "My Father's Mistress Humiliated the Wrong Heiress🩸Don's Daughter Doesn't Need a New Mother👑",
+      "c": "GoodShort 官方",
+      "market": "overseas",
+      "platform": "GoodShort",
+      "d": 868,
+      "s": 78,
+      "g": [
+        "豪门",
+        "亲情",
+        "冲突开场"
+      ],
+      "h": "我父亲的情妇羞辱了错误的女继承人🩸唐的女儿不需要新妈妈👑",
+      "hEn": "My Father's Mistress Humiliated the Wrong Heiress🩸Don's Daughter Doesn't Need a New Mother👑",
+      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
+      "story": "我父亲的情妇羞辱了错误的女继承人🩸唐的女儿不需要新妈妈👑",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "我父亲的情妇羞辱了错误的女继承人🩸唐的女儿不需要新妈妈👑"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 67000,
+      "p": "2026-09-02T06:55:35.275666+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=tSQqcZ2qxEo",
+      "focus": false
+    },
+    {
+      "id": "As2Zh26ZzYQ",
+      "t": "He Cheated. I Reborn and Took Back the Sky⏳His Regret Began the Day I Took Off✈️",
+      "c": "GoodShort 官方",
+      "market": "overseas",
+      "platform": "GoodShort",
+      "d": 1428,
+      "s": 83,
+      "g": [
+        "复仇",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "他作弊了。我重生夺回了天空⏳他的悔恨从我起飞的那一天开始✈️",
+      "hEn": "He Cheated. I Reborn and Took Back the Sky⏳His Regret Began the Day I Took Off✈️",
+      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
+      "story": "他作弊了。我重生夺回了天空⏳他的悔恨从我起飞的那一天开始✈️",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "他作弊了。我重生夺回了天空⏳他的悔恨从我起飞的那一天开始✈️"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 65000,
+      "p": "2026-08-29T06:55:43.858001+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=As2Zh26ZzYQ",
+      "focus": true
+    },
+    {
+      "id": "2cBsv0BCNNA",
+      "t": "The Legendary Dragon Rider Hid as a Drunk🐉The Hidden Dragon Rider Returns for Justice⚔️",
+      "c": "GoodShort 官方",
+      "d": 1778,
+      "s": 78,
+      "g": [
+        "身份反转",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "传说中的龙骑醉酒藏身🐉隐藏的龙骑回归正义⚔️",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "传说中的龙骑醉酒藏身🐉隐藏的龙骑回归正义⚔️"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 51000,
+      "p": "2026-08-30T06:55:41.202632+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=2cBsv0BCNNA",
+      "ten": "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。",
+      "story": "传说中的龙骑醉酒藏身🐉隐藏的龙骑回归正义⚔️",
+      "market": "overseas",
+      "focus": false,
+      "hEn": "The Legendary Dragon Rider Hid as a Drunk🐉The Hidden Dragon Rider Returns for Justice⚔️",
+      "platform": "GoodShort"
+    },
+    {
+      "id": "fuM-slY--64",
+      "t": "I Married the Man His Ex Couldn't Appreciate💍Top Gear Guy Finds His Mrs. Right🏎️",
+      "c": "GoodShort 官方",
+      "market": "overseas",
+      "platform": "GoodShort",
+      "d": 1733,
+      "s": 83,
+      "g": [
+        "身份反转",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "为了逃离强迫婚姻，她冲动地嫁给了一名被前男友抛弃的机械师。事实证明，他是一个秘密的赛车传奇人物和一个巨大的继承人！当他有毒的时候",
+      "hEn": "Fleeing a forced marriage, she impulsively wed a mechanic dumped by his ex. Turns out, he’s a secret racing legend and a massive heir! When his toxic",
+      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
+      "story": "为了逃离强迫婚姻，她冲动地嫁给了一名被前男友抛弃的机械师。事实证明，他是一个秘密的赛车传奇人物和一个巨大的继承人！当他有毒的前任求他回来时，他紧紧握住她的手，再也没有回头",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "为了逃离强迫婚姻，她冲动地嫁给了一名被前男友抛弃的机械师。事实证明，他是一个秘密的赛车传奇人物和一个巨大的继承人！当他有毒的时候"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 44097,
+      "p": "2026-09-04T11:00:22+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=fuM-slY--64",
+      "focus": true
+    },
+    {
+      "id": "1QJvGAUMYGA",
+      "t": "The Husband She Despised Built Her Everything😱Her Kept Husband Was the King of Everything💔",
+      "c": "GoodShort 官方",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "复仇",
+        "豪门",
+        "身份反转"
+      ],
+      "h": "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。然而她却",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。然而她却"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 42318,
+      "p": "2026-08-27T15:00:01+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=1QJvGAUMYGA",
+      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
+      "story": "受到六年承诺的约束，强大的精灵埃夫伦隐藏了自己的身份并保护他的妻子莱拉，使她的公司免受每一次危机。但她却把他当作一个无用的仆人。合同到期后，埃夫伦离开——留下莱拉去发现",
+      "market": "overseas",
+      "focus": false,
+      "platform": "GoodShort"
+    },
+    {
+      "id": "nJ6asBjQi34",
+      "t": "The Drunk Nobody Was the Legendary Dragon Rider🐉The Hidden Dragon Rider Returns for Justice⚔️",
+      "c": "GoodShort 官方",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "豪门",
+        "身份反转",
+        "冲突开场"
+      ],
+      "h": "📺全集👉 🎬剧名：隐藏的龙骑回归正义👀简介：传说中的龙骑继承者伪装成酒鬼生活",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "📺全集👉 🎬剧名：隐藏的龙骑回归正义👀简介：传说中的龙骑继承者伪装成酒鬼生活"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 28824,
+      "p": "2026-08-26T11:00:20+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=nJ6asBjQi34",
+      "ten": "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。",
+      "story": "传说中的龙骑士继承者伪装成酒鬼生活",
+      "market": "overseas",
+      "focus": false,
+      "platform": "GoodShort"
+    },
+    {
+      "id": "BXlst9na9CE",
+      "t": "She Returned to Make the Beasts Kneel👑The Villainess Pays Her Debt in Bed💋",
       "c": "GoodShort 官方",
       "d": 0,
       "s": 78,
@@ -1023,12 +929,12 @@
         "豪门",
         "冲突开场"
       ],
-      "h": "📺全集👉 🎬剧名：恶女床上债👀简介：觉醒的公主发誓要驯服她曾经打倒的四只野兽。一个",
+      "h": "醒来后，公主发誓要驯服她曾经打败的四只野兽。月光下未驯服的狼，大腿上高高的吸血鬼痕迹，狮子的头",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "📺全集👉 🎬剧名：恶女床上债👀简介：觉醒的公主发誓要驯服她曾经打倒的四只野兽。一个"
+          "醒来后，公主发誓要驯服她曾经打败的四只野兽。月光下未驯服的狼，大腿上高高的吸血鬼痕迹，狮子的头"
         ],
         [
           "00:58",
@@ -1043,30 +949,79 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 15403,
-      "p": "2026-08-24T13:00:35+00:00",
+      "v": 24971,
+      "p": "2026-08-28T11:00:36+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=UndefzC_VTM",
-      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
-      "story": "醒来后，公主发誓要驯服她曾经打败的四只野兽。一个"
+      "sourceUrl": "https://www.youtube.com/watch?v=BXlst9na9CE",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "醒来后，公主发誓要驯服她曾经打败的四只野兽。月光下未驯服的狼，大腿上高高的吸血鬼印记，狮子的沉重抚摸，锁骨上的海妖泪水……当猎物变成掠夺者时，在她的王座和床铺之间——谁能得到",
+      "market": "overseas",
+      "focus": false,
+      "platform": "GoodShort"
     },
     {
-      "id": "JzOKvjl5Qzw",
-      "t": "I’m Doomed! The Mafia King Won’t Let Me Escape This Marriage! 🩸 | DramaBox",
-      "c": "DramaBox 官方",
+      "id": "SAEL_zdaPNE",
+      "t": "I Married Into the Family Where Women Die💀The Billionaire's Baby-Making Cowgirl👑",
+      "c": "GoodShort 官方",
       "d": 0,
-      "s": 93,
+      "s": 83,
+      "g": [
+        "豪门",
+        "亲情",
+        "末日"
+      ],
+      "h": "黛西梅来自一个神奇的村庄，那里的女性天生拥有非凡的生育能力。她出人意料地嫁给了亿万富翁继承人塞拉斯",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "黛西梅来自一个神奇的村庄，那里的女性天生拥有非凡的生育能力。她出人意料地嫁给了亿万富翁继承人塞拉斯"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 24354,
+      "p": "2026-08-27T13:00:31+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=SAEL_zdaPNE",
+      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
+      "story": "黛西梅来自一个神奇的村庄，那里的女性天生拥有非凡的生育能力。她出人意料地嫁给了亿万富翁继承人塞拉斯·斯特林，而他的家族迫切需要一个继承人。但英镑却被诅咒了。每个女人都背负着自己的",
+      "market": "overseas",
+      "focus": true,
+      "platform": "GoodShort"
+    },
+    {
+      "id": "V-zysxG7Jdg",
+      "t": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 8352,
+      "s": 78,
       "g": [
         "豪门",
         "亲情",
         "冲突开场"
       ],
-      "h": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。 Victoria is set to marry Dominic Castellano,",
+      "h": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "hEn": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。 Victoria is set to marry Dominic Castellano,"
+          "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）"
         ],
         [
           "00:58",
@@ -1081,31 +1036,76 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 14802,
-      "p": "2026-08-29T12:00:35+00:00",
+      "v": 1228219,
+      "p": "2023-10-11T10:30:12+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=JzOKvjl5Qzw",
-      "ten": "画面：婚礼刚开始就有人闯入或揭穿秘密，所有宾客同时看向主角。｜吸睛点：公开场合翻车，羞辱和反转一眼就懂。",
-      "story": "25 岁的护士莉莉·沃森 (Lily Watson) 在她同父异母的妹妹维多利亚 (Victoria) 的婚礼上被迫进行了一项致命的交易。维多利亚即将与多米尼克·卡斯特拉诺结婚，多米尼克·卡斯特拉诺是一位残忍的黑手党国王，据传杀死了他的最后一任妻子。但当维多利亚逃跑时，多米尼克的杀手威胁",
-      "hEn": "On her half-sister Victoria's wedding day, 25-year-old nurse Lily Watson is forced into a deadly bargain. Victoria is set to marry Dominic Castellano,"
+      "sourceUrl": "https://www.youtube.com/watch?v=V-zysxG7Jdg",
+      "focus": true
     },
     {
-      "id": "_fiWPHsSDcI",
-      "t": "They Kidnapped My Daughter! The Legend Pizza Guy Awakens! 🍕💥 | DramaBox",
-      "c": "DramaBox 官方",
-      "d": 0,
+      "id": "gxQh71RYSSM",
+      "t": "ENG SUB [Provoke] Full Version PartⅠ| A love-hate puzzle begins with revenge",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 10616,
       "s": 83,
       "g": [
-        "身份反转",
+        "复仇",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB [Provoke] 完整版第一部分|爱恨情仇从复仇开始",
+      "hEn": "ENG SUB [Provoke] Full Version PartⅠ| A love-hate puzzle begins with revenge",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB [Provoke] 完整版第一部分|爱恨情仇从复仇开始",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB [Provoke] 完整版第一部分|爱恨情仇从复仇开始"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 1000000,
+      "p": "2023-09-08T06:59:25.032535+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=gxQh71RYSSM",
+      "focus": true
+    },
+    {
+      "id": "5U09HqdBEIA",
+      "t": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 8978,
+      "s": 78,
+      "g": [
+        "豪门",
         "亲情",
         "冲突开场"
       ],
-      "h": "利奥，一个傻乎乎的披萨小伙子，实际上是“死手”，一个传奇的强大变种人。当他的女儿艾莉为了上大学而被腐败的中小型企业绑架时",
+      "h": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "hEn": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "利奥，一个傻乎乎的披萨小伙子，实际上是“死手”，一个传奇的强大变种人。当他的女儿艾莉为了上大学而被腐败的中小型企业绑架时"
+          "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）"
         ],
         [
           "00:58",
@@ -1120,31 +1120,664 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 14139,
-      "p": "2026-08-30T14:00:17+00:00",
+      "v": 666167,
+      "p": "2023-10-12T10:30:03+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=_fiWPHsSDcI",
-      "ten": "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
-      "story": "利奥，一个傻乎乎的披萨小伙子，实际上是“死手”，一个传奇的强大变种人。当他的女儿艾莉因其独特的血统而被腐败的中小企业绑架时，利奥放弃了伪装。与斯特拉队长联手，对抗雇佣兵、黑马",
-      "hEn": "Leo, a goofy pizza guy, is actually \"\"Dead Hand,\"\" a legendary overpowered mutant. When his daughter Ellie is kidnapped by the corrupt SMB for her uni"
+      "sourceUrl": "https://www.youtube.com/watch?v=5U09HqdBEIA",
+      "focus": true
     },
     {
-      "id": "XCiQShsSap4",
-      "t": "He Abandoned Us for 7 Years. My Daughter Shocked the Sun God! ☀️ | DramaBox",
-      "c": "DramaBox 官方",
+      "id": "cBgg6JfSx0o",
+      "t": "ENG SUB [Promise in the Summer] Full Version | Master devil loves the vigorous girl again",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 10975,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB [夏天的约定] 完整版 |恶魔少爷又爱上元气少女了",
+      "hEn": "ENG SUB [Promise in the Summer] Full Version | Master devil loves the vigorous girl again",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB [夏天的约定] 完整版 |恶魔少爷又爱上元气少女了",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB [夏天的约定] 完整版 |恶魔少爷又爱上元气少女了"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 307000,
+      "p": "2023-09-08T06:59:25.489390+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=cBgg6JfSx0o",
+      "focus": true
+    },
+    {
+      "id": "wMtyXWrQ-rY",
+      "t": "ENG SUB [Provoke] Full Version PartⅡ | A love-hate puzzle begins with revenge",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 10068,
+      "s": 83,
+      "g": [
+        "复仇",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB [Provoke] 完整版第二部分 |爱恨情仇从复仇开始",
+      "hEn": "ENG SUB [Provoke] Full Version PartⅡ | A love-hate puzzle begins with revenge",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB [Provoke] 完整版第二部分 |爱恨情仇从复仇开始",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB [Provoke] 完整版第二部分 |爱恨情仇从复仇开始"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 156000,
+      "p": "2023-09-08T06:59:22.254856+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=wMtyXWrQ-rY",
+      "focus": true
+    },
+    {
+      "id": "PVQQ8nXhkQg",
+      "t": "ENG SUB [A Love Journal] Full Version | A marriage contract can lock their love",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 4645,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB [爱情日记] 完整版 |一份婚约可以锁住他们的爱情",
+      "hEn": "ENG SUB [A Love Journal] Full Version | A marriage contract can lock their love",
+      "ten": "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
+      "story": "ENG SUB [爱情日记] 完整版 |一份婚约可以锁住他们的爱情",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB [爱情日记] 完整版 |一份婚约可以锁住他们的爱情"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 119000,
+      "p": "2023-09-08T06:59:26.853588+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=PVQQ8nXhkQg",
+      "focus": true
+    },
+    {
+      "id": "72miE0_G8Ms",
+      "t": "ENG SUB [Meet With Two Souls] Full Version | A game between a couple, who will be the final winner?",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 8726,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB [遇见两个灵魂] 完整版 | ENG SUB情侣之间的游戏，谁会是最后的胜利者呢？",
+      "hEn": "ENG SUB [Meet With Two Souls] Full Version | A game between a couple, who will be the final winner?",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB [遇见两个灵魂] 完整版 | ENG SUB情侣之间的游戏，谁会是最后的胜利者呢？",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB [遇见两个灵魂] 完整版 | ENG SUB情侣之间的游戏，谁会是最后的胜利者呢？"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 113000,
+      "p": "2023-09-08T06:59:21.826035+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=72miE0_G8Ms",
+      "focus": true
+    },
+    {
+      "id": "qqJUcG1fLv8",
+      "t": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 9883,
+      "s": 78,
+      "g": [
+        "亲情",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
+      "hEn": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 112279,
+      "p": "2023-11-04T13:00:55+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=qqJUcG1fLv8",
+      "focus": false
+    },
+    {
+      "id": "aL-Cm1V4uj8",
+      "t": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 12895,
+      "s": 78,
+      "g": [
+        "豪门",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
+      "hEn": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 97341,
+      "p": "2024-01-09T10:30:00+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=aL-Cm1V4uj8",
+      "focus": false
+    },
+    {
+      "id": "qHqUzd7yCDo",
+      "t": "ENG SUB [The Shoufu Can Read Mind] Full Version | The mind-reading skill helped him chase his wife",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 5174,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB 【首府能读心】完整版 |读心术助他追妻",
+      "hEn": "ENG SUB [The Shoufu Can Read Mind] Full Version | The mind-reading skill helped him chase his wife",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB 【首府能读心】完整版 |读心术助他追妻",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB 【首府能读心】完整版 |读心术助他追妻"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 90000,
+      "p": "2023-09-08T06:59:29.272597+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=qHqUzd7yCDo",
+      "focus": false
+    },
+    {
+      "id": "awWDtFja2t4",
+      "t": "ENG SUB [Little Mad Doctor] Full Version | The counterattack of a fairy doctor in another world",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 11275,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB 【小狂医】完整版 |异世界神医逆袭",
+      "hEn": "ENG SUB [Little Mad Doctor] Full Version | The counterattack of a fairy doctor in another world",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB 【小狂医】完整版 |异世界神医逆袭",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB 【小狂医】完整版 |异世界神医逆袭"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 89000,
+      "p": "2023-09-08T06:59:24.604616+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=awWDtFja2t4",
+      "focus": false
+    },
+    {
+      "id": "PCmB1NeR1NI",
+      "t": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
+      "c": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频",
+      "d": 5965,
+      "s": 78,
+      "g": [
+        "亲情",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
+      "hEn": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 80068,
+      "p": "2023-10-31T10:00:31+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=PCmB1NeR1NI",
+      "focus": false
+    },
+    {
+      "id": "FhRMIFvoDy0",
+      "t": "【Full】天選之子家族慘遭蘇家陷害破產，為報仇不惜臥薪嘗膽多年！| 萬世歸一 | 短劇 | Short Film | 歡迎訂閱",
+      "c": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "d": 6810,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【Full】天選之子家族慘遭蘇家陷害破產，為報仇不惜臥薪嘗膽多年！| 萬世歸一 | 短劇 | Short Film | 歡迎訂閱",
+      "hEn": "【Full】天選之子家族慘遭蘇家陷害破產，為報仇不惜臥薪嘗膽多年！| 萬世歸一 | 短劇 | Short Film | 歡迎訂閱",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【Full】天選之子家族慘遭蘇家陷害破產，為報仇不惜臥薪嘗膽多年！| 萬世歸一 | 短劇 | Short Film | 歡迎訂閱",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【Full】天選之子家族慘遭蘇家陷害破產，為報仇不惜臥薪嘗膽多年！| 萬世歸一 | 短劇 | Short Film | 歡迎訂閱"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 25000,
+      "p": "2025-09-07T07:10:22.067576+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=FhRMIFvoDy0",
+      "focus": false
+    },
+    {
+      "id": "HWLJXOvnrDc",
+      "t": "【Full】全集純享 皇后被污衊是妖女，自刎後穿越到現代！沒想到萌寶也跟着來了！萌寶神助攻，高冷爸比能否成功 “攻略” 媽咪？ | 千歲萌寶突然駕到 | 短劇 | Short Film | 歡迎訂閱",
+      "c": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "d": 6943,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【Full】全集純享 皇后被污衊是妖女，自刎後穿越到現代！沒想到萌寶也跟着來了！萌寶神助攻，高冷爸比能否成功 “攻略” 媽咪？ | 千歲萌寶突然駕到 | 短劇 | Short Film | 歡迎訂閱",
+      "hEn": "【Full】全集純享 皇后被污衊是妖女，自刎後穿越到現代！沒想到萌寶也跟着來了！萌寶神助攻，高冷爸比能否成功 “攻略” 媽咪？ | 千歲萌寶突然駕到 | 短劇 | Short Film | 歡迎訂閱",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【Full】全集純享 皇后被污衊是妖女，自刎後穿越到現代！沒想到萌寶也跟着來了！萌寶神助攻，高冷爸比能否成功 “攻略” 媽咪？ | 千歲萌寶突然駕到 | 短劇 | Short Film | 歡迎訂閱",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【Full】全集純享 皇后被污衊是妖女，自刎後穿越到現代！沒想到萌寶也跟着來了！萌寶神助攻，高冷爸比能否成功 “攻略” 媽咪？ | 千歲萌寶突然駕到 | 短劇 | Short Film | 歡迎訂閱"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 16000,
+      "p": "2025-09-07T07:10:22.068582+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=HWLJXOvnrDc",
+      "focus": false
+    },
+    {
+      "id": "J1YTodTmBIU",
+      "t": "【Full】總裁愛上自己的貼身秘書，就算她結婚帶娃也忍不住心動，殊不知秘書就是他五年前在新婚之夜拋棄的妻子！ | 你是我的天賜良緣 | 短劇 | Short Film | 歡迎訂閱",
+      "c": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "d": 5241,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【Full】總裁愛上自己的貼身秘書，就算她結婚帶娃也忍不住心動，殊不知秘書就是他五年前在新婚之夜拋棄的妻子！ | 你是我的天賜良緣 | 短劇 | Short Film | 歡迎訂閱",
+      "hEn": "【Full】總裁愛上自己的貼身秘書，就算她結婚帶娃也忍不住心動，殊不知秘書就是他五年前在新婚之夜拋棄的妻子！ | 你是我的天賜良緣 | 短劇 | Short Film | 歡迎訂閱",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【Full】總裁愛上自己的貼身秘書，就算她結婚帶娃也忍不住心動，殊不知秘書就是他五年前在新婚之夜拋棄的妻子！ | 你是我的天賜良緣 | 短劇 | Short Film | 歡迎訂閱",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【Full】總裁愛上自己的貼身秘書，就算她結婚帶娃也忍不住心動，殊不知秘書就是他五年前在新婚之夜拋棄的妻子！ | 你是我的天賜良緣 | 短劇 | Short Film | 歡迎訂閱"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 6000,
+      "p": "2025-09-07T07:10:22.067576+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=J1YTodTmBIU",
+      "focus": false
+    },
+    {
+      "id": "oK0CF1q-eXc",
+      "t": "【Full】女孩電梯捉姦男友與閨蜜，沒想到意外被霸總所救，霸總助力女孩復仇，沒想到霸總竟是當年青梅竹馬的哥哥 | 盛婚蜜愛 | 短劇 | Short Film | 歡迎訂閱",
+      "c": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "d": 2095,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【Full】女孩電梯捉姦男友與閨蜜，沒想到意外被霸總所救，霸總助力女孩復仇，沒想到霸總竟是當年青梅竹馬的哥哥 | 盛婚蜜愛 | 短劇 | Short Film | 歡迎訂閱",
+      "hEn": "【Full】女孩電梯捉姦男友與閨蜜，沒想到意外被霸總所救，霸總助力女孩復仇，沒想到霸總竟是當年青梅竹馬的哥哥 | 盛婚蜜愛 | 短劇 | Short Film | 歡迎訂閱",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【Full】女孩電梯捉姦男友與閨蜜，沒想到意外被霸總所救，霸總助力女孩復仇，沒想到霸總竟是當年青梅竹馬的哥哥 | 盛婚蜜愛 | 短劇 | Short Film | 歡迎訂閱",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【Full】女孩電梯捉姦男友與閨蜜，沒想到意外被霸總所救，霸總助力女孩復仇，沒想到霸總竟是當年青梅竹馬的哥哥 | 盛婚蜜愛 | 短劇 | Short Film | 歡迎訂閱"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 2900,
+      "p": "2025-09-07T07:10:22.066070+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=oK0CF1q-eXc",
+      "focus": false
+    },
+    {
+      "id": "H9NSpytSkFY",
+      "t": "【Full】武功奇才被算計武功盡失，為報仇雪恨修煉為絕世天尊 | 武極天尊 | 短劇 | Short Film | 歡迎訂閱",
+      "c": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "d": 8542,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【Full】武功奇才被算計武功盡失，為報仇雪恨修煉為絕世天尊 | 武極天尊 | 短劇 | Short Film | 歡迎訂閱",
+      "hEn": "【Full】武功奇才被算計武功盡失，為報仇雪恨修煉為絕世天尊 | 武極天尊 | 短劇 | Short Film | 歡迎訂閱",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【Full】武功奇才被算計武功盡失，為報仇雪恨修煉為絕世天尊 | 武極天尊 | 短劇 | Short Film | 歡迎訂閱",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【Full】武功奇才被算計武功盡失，為報仇雪恨修煉為絕世天尊 | 武極天尊 | 短劇 | Short Film | 歡迎訂閱"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 2900,
+      "p": "2025-09-07T07:10:22.066070+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=H9NSpytSkFY",
+      "focus": false
+    },
+    {
+      "id": "3PJH3o_aQF8",
+      "t": "【Full】女將軍爲尋找丈夫上陣殺敵，竟意外登上皇位成爲第一女帝，和老公女兒大團圓！ | 九龍城寨之女王歸來 | 短劇 | Short Film | 歡迎訂閱",
+      "c": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "d": 8516,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【Full】女將軍爲尋找丈夫上陣殺敵，竟意外登上皇位成爲第一女帝，和老公女兒大團圓！ | 九龍城寨之女王歸來 | 短劇 | Short Film | 歡迎訂閱",
+      "hEn": "【Full】女將軍爲尋找丈夫上陣殺敵，竟意外登上皇位成爲第一女帝，和老公女兒大團圓！ | 九龍城寨之女王歸來 | 短劇 | Short Film | 歡迎訂閱",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【Full】女將軍爲尋找丈夫上陣殺敵，竟意外登上皇位成爲第一女帝，和老公女兒大團圓！ | 九龍城寨之女王歸來 | 短劇 | Short Film | 歡迎訂閱",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【Full】女將軍爲尋找丈夫上陣殺敵，竟意外登上皇位成爲第一女帝，和老公女兒大團圓！ | 九龍城寨之女王歸來 | 短劇 | Short Film | 歡迎訂閱"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 2700,
+      "p": "2025-09-07T07:10:22.067576+00:00",
+      "source": "youtube-web-fallback",
+      "sourceUrl": "https://www.youtube.com/watch?v=3PJH3o_aQF8",
+      "focus": false
+    },
+    {
+      "id": "tVcFxZY5fVk",
+      "t": "首播新劇🔥現代小夥偶然收到神秘造景箱，撞見山賊霸凌箱中落難少女隨手出手相救！誰知箱內竟是真實大明末年，以凡人之手悄悄改寫王朝命運！《箱子裡的大明》",
+      "c": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧",
       "d": 0,
       "s": 78,
       "g": [
-        "身份反转",
-        "亲情",
-        "冲突开场"
+        "新样本",
+        "冲突开场",
+        "YouTube"
       ],
-      "h": "分开七年后，太阳神继承人卢锡安发现他的凡人情人塞西莉亚还活着，而他们隐藏的女儿阿玛亚是一位强大的恶魔",
+      "h": "首播新劇🔥現代小夥偶然收到神秘造景箱，撞見山賊霸凌箱中落難少女隨手出手相救！誰知箱內竟是真實大明末年，以凡人之手悄悄改寫王朝命運！《箱子裡的大明》",
+      "hEn": "首播新劇🔥現代小夥偶然收到神秘造景箱，撞見山賊霸凌箱中落難少女隨手出手相救！誰知箱內竟是真實大明末年，以凡人之手悄悄改寫王朝命運！《箱子裡的大明》",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "首播新劇🔥現代小夥偶然收到神秘造景箱，撞見山賊霸凌箱中落難少女隨手出手相救！誰知箱內竟是真實大明末年，以凡人之手悄悄改寫王朝命運！《箱子裡的大明》",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "分开七年后，太阳神继承人卢锡安发现他的凡人情人塞西莉亚还活着，而他们隐藏的女儿阿玛亚是一位强大的恶魔"
+          "首播新劇🔥現代小夥偶然收到神秘造景箱，撞見山賊霸凌箱中落難少女隨手出手相救！誰知箱內竟是真實大明末年，以凡人之手悄悄改寫王朝命運！《箱子裡的大明》"
         ],
         [
           "00:58",
@@ -1159,13 +1792,221 @@
           "新线索出现，留下下一集悬念。"
         ]
       ],
-      "v": 13626,
-      "p": "2026-08-30T13:00:34+00:00",
+      "v": 162114,
+      "p": "2026-08-24T11:00:17+00:00",
       "source": "youtube-atom",
-      "sourceUrl": "https://www.youtube.com/watch?v=XCiQShsSap4",
-      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
-      "story": "相隔七年后，太阳神继承人卢西恩发现他的凡人情人塞西莉亚还活着，而他们隐藏的女儿阿玛亚是一位强大的半神。当塞西莉亚失去的记忆恢复，嫉妒的女神威胁他们的生命时，卢锡安必须反抗奥林匹斯山，",
-      "hEn": "After seven years apart, Sun God heir Lucian discovers that his mortal lover Cecilia is alive—and that their hidden daughter, Amaya, is a powerful dem"
+      "sourceUrl": "https://www.youtube.com/watch?v=tVcFxZY5fVk",
+      "focus": true
+    },
+    {
+      "id": "26jX-89MUf8",
+      "t": "首播新劇🔥他殿前鬥詩定江山，浴血護妻闖禁地！滿心篤定告白餘生，摯愛卻被仙宗擄走，絕境宿命轟然降臨！《我家娘子不對勁4》",
+      "c": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "首播新劇🔥他殿前鬥詩定江山，浴血護妻闖禁地！滿心篤定告白餘生，摯愛卻被仙宗擄走，絕境宿命轟然降臨！《我家娘子不對勁4》",
+      "hEn": "首播新劇🔥他殿前鬥詩定江山，浴血護妻闖禁地！滿心篤定告白餘生，摯愛卻被仙宗擄走，絕境宿命轟然降臨！《我家娘子不對勁4》",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "首播新劇🔥他殿前鬥詩定江山，浴血護妻闖禁地！滿心篤定告白餘生，摯愛卻被仙宗擄走，絕境宿命轟然降臨！《我家娘子不對勁4》",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "首播新劇🔥他殿前鬥詩定江山，浴血護妻闖禁地！滿心篤定告白餘生，摯愛卻被仙宗擄走，絕境宿命轟然降臨！《我家娘子不對勁4》"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 90925,
+      "p": "2026-08-29T11:00:06+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=26jX-89MUf8",
+      "focus": false
+    },
+    {
+      "id": "vIk_340qICQ",
+      "t": "首播新劇🔥現代達人攜滿級物資穿越成落魄庶子！本想躺平做亂世富家翁，卻捲入皇權紛爭，嬌妻道長皆藏仙子秘影，憑現代外掛攪動天下風雲！《娘子，別這樣》",
+      "c": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "首播新劇🔥現代達人攜滿級物資穿越成落魄庶子！本想躺平做亂世富家翁，卻捲入皇權紛爭，嬌妻道長皆藏仙子秘影，憑現代外掛攪動天下風雲！《娘子，別這樣》",
+      "hEn": "首播新劇🔥現代達人攜滿級物資穿越成落魄庶子！本想躺平做亂世富家翁，卻捲入皇權紛爭，嬌妻道長皆藏仙子秘影，憑現代外掛攪動天下風雲！《娘子，別這樣》",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "首播新劇🔥現代達人攜滿級物資穿越成落魄庶子！本想躺平做亂世富家翁，卻捲入皇權紛爭，嬌妻道長皆藏仙子秘影，憑現代外掛攪動天下風雲！《娘子，別這樣》",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "首播新劇🔥現代達人攜滿級物資穿越成落魄庶子！本想躺平做亂世富家翁，卻捲入皇權紛爭，嬌妻道長皆藏仙子秘影，憑現代外掛攪動天下風雲！《娘子，別這樣》"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 89304,
+      "p": "2026-08-28T11:00:32+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=vIk_340qICQ",
+      "focus": false
+    },
+    {
+      "id": "3Q86GqmSUKw",
+      "t": "【週嘉怡💕馬爍棋】她含恨而死看透世人險惡！重生開局逆天改命，招惹神秘隱忍美男，雙向試探聯手破局，最後被頂級大佬傾盡所有入贅偏愛！《大佬入贅極致重婚》",
+      "c": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "【週嘉怡💕馬爍棋】她含恨而死看透世人險惡！重生開局逆天改命，招惹神秘隱忍美男，雙向試探聯手破局，最後被頂級大佬傾盡所有入贅偏愛！《大佬入贅極致重婚》",
+      "hEn": "【週嘉怡💕馬爍棋】她含恨而死看透世人險惡！重生開局逆天改命，招惹神秘隱忍美男，雙向試探聯手破局，最後被頂級大佬傾盡所有入贅偏愛！《大佬入贅極致重婚》",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "【週嘉怡💕馬爍棋】她含恨而死看透世人險惡！重生開局逆天改命，招惹神秘隱忍美男，雙向試探聯手破局，最後被頂級大佬傾盡所有入贅偏愛！《大佬入贅極致重婚》",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "【週嘉怡💕馬爍棋】她含恨而死看透世人險惡！重生開局逆天改命，招惹神秘隱忍美男，雙向試探聯手破局，最後被頂級大佬傾盡所有入贅偏愛！《大佬入贅極致重婚》"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 66283,
+      "p": "2026-08-25T12:00:14+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=3Q86GqmSUKw",
+      "focus": false
+    },
+    {
+      "id": "2c0LwQqpmUI",
+      "t": "首播新劇🔥小夥穿越成被肆意欺凌的底層軍戶，原主遭人迫害殞命，他藉精湛箭術站穩腳跟！掙脫泥淖，在士族腐朽、諸王傾軋的亂世，揮劍殺出屬於漢家的生路！《晉末長劍》",
+      "c": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "首播新劇🔥小夥穿越成被肆意欺凌的底層軍戶，原主遭人迫害殞命，他藉精湛箭術站穩腳跟！掙脫泥淖，在士族腐朽、諸王傾軋的亂世，揮劍殺出屬於漢家的生路！《晉末長劍》",
+      "hEn": "首播新劇🔥小夥穿越成被肆意欺凌的底層軍戶，原主遭人迫害殞命，他藉精湛箭術站穩腳跟！掙脫泥淖，在士族腐朽、諸王傾軋的亂世，揮劍殺出屬於漢家的生路！《晉末長劍》",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "首播新劇🔥小夥穿越成被肆意欺凌的底層軍戶，原主遭人迫害殞命，他藉精湛箭術站穩腳跟！掙脫泥淖，在士族腐朽、諸王傾軋的亂世，揮劍殺出屬於漢家的生路！《晉末長劍》",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "首播新劇🔥小夥穿越成被肆意欺凌的底層軍戶，原主遭人迫害殞命，他藉精湛箭術站穩腳跟！掙脫泥淖，在士族腐朽、諸王傾軋的亂世，揮劍殺出屬於漢家的生路！《晉末長劍》"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 47522,
+      "p": "2026-09-05T11:00:08+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=2c0LwQqpmUI",
+      "focus": false
+    },
+    {
+      "id": "0eOTkjwO4v0",
+      "t": "首播新劇🔥他以冒牌姐夫的身份降臨都市，肩負修復封神榜使命，守護三姐妹尋找碎片，重啟大夏神權，於絕境之中為家國搏出一線生機！《冒牌姐夫駕到，誰還敢說大夏無神》",
+      "c": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧",
+      "d": 0,
+      "s": 78,
+      "g": [
+        "新样本",
+        "冲突开场",
+        "YouTube"
+      ],
+      "h": "首播新劇🔥他以冒牌姐夫的身份降臨都市，肩負修復封神榜使命，守護三姐妹尋找碎片，重啟大夏神權，於絕境之中為家國搏出一線生機！《冒牌姐夫駕到，誰還敢說大夏無神》",
+      "hEn": "首播新劇🔥他以冒牌姐夫的身份降臨都市，肩負修復封神榜使命，守護三姐妹尋找碎片，重啟大夏神權，於絕境之中為家國搏出一線生機！《冒牌姐夫駕到，誰還敢說大夏無神》",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "首播新劇🔥他以冒牌姐夫的身份降臨都市，肩負修復封神榜使命，守護三姐妹尋找碎片，重啟大夏神權，於絕境之中為家國搏出一線生機！《冒牌姐夫駕到，誰還敢說大夏無神》",
+      "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+      "m": [
+        [
+          "00:00",
+          "首播新劇🔥他以冒牌姐夫的身份降臨都市，肩負修復封神榜使命，守護三姐妹尋找碎片，重啟大夏神權，於絕境之中為家國搏出一線生機！《冒牌姐夫駕到，誰還敢說大夏無神》"
+        ],
+        [
+          "00:58",
+          "冲突升级，隐藏关系或真实目的被揭开。"
+        ],
+        [
+          "01:46",
+          "对立双方被迫正面交锋，情绪开始翻面。"
+        ],
+        [
+          "02:43",
+          "新线索出现，留下下一集悬念。"
+        ]
+      ],
+      "v": 26131,
+      "p": "2026-09-04T12:00:13+00:00",
+      "source": "youtube-atom",
+      "sourceUrl": "https://www.youtube.com/watch?v=0eOTkjwO4v0",
+      "focus": false
     }
   ]
 }
