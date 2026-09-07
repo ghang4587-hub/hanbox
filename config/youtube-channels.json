@@ -2,12 +2,61 @@
   "channels": [
     {
       "id": "UC23wOTsr0ZZrZoyU2jWk6Kw",
-      "label": "DramaBox 官方"
+      "label": "DramaBox 官方",
+      "market": "overseas",
+      "platform": "DramaBox"
     },
     {
       "id": "UCYZWZ9iaXmYYPdbmL4fDHgA",
-      "label": "GoodShort 官方"
+      "label": "GoodShort 官方",
+      "market": "overseas",
+      "platform": "GoodShort"
+    },
+    {
+      "id": "UC0hQ_REIIvhA_MH2cu9de2A",
+      "label": "优酷微剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "completeOnly": true
+    },
+    {
+      "id": "UC8OHMmROoLHPaQ_WLss6INQ",
+      "label": "优酷短剧官方",
+      "market": "domestic",
+      "platform": "优酷",
+      "completeOnly": true
+    },
+    {
+      "id": "UCbMgoYsgxfCyCHnJ29Cp4DA",
+      "label": "阅文短剧官方",
+      "market": "domestic",
+      "platform": "阅文短剧"
+    },
+    {
+      "playlistId": "PLMX26aiIvX5qmkybu_K9tG6zuaEdx7nJa",
+      "label": "腾讯视频微短剧",
+      "market": "domestic",
+      "platform": "腾讯视频"
     }
+  ],
+  "excludeTitleKeywords": [
+    "漫剧",
+    "动态漫",
+    "漫画",
+    "动画",
+    "动漫",
+    "animation",
+    "animated",
+    "comic",
+    "预告",
+    "试看",
+    "抢先看",
+    "片花",
+    "花絮",
+    "trailer",
+    "preview",
+    "teaser",
+    "highlight"
   ]
 }
 
