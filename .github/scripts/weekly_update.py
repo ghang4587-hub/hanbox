@@ -30,8 +30,15 @@ DATA_PATH = ROOT / "data" / "weekly.json"
 FRAMES_ROOT = ROOT / "assets" / "frames"
 USER_AGENT = "MergeSparkRadarWeeklyRefresh/1.0 (+GitHub Actions)"
 BROWSER_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36"
-SAMPLE_LIMIT = 30
-WEEKLY_PRIORITY_LIMIT = 10
+SAMPLE_LIMIT = 48
+MARKET_SAMPLE_LIMIT = 24
+WEEKLY_NEW_LIMIT_PER_MARKET = 6
+WEEKLY_FOCUS_LIMIT_PER_MARKET = 8
+MEDIA_ENRICH_LIMIT = 12
+PLATFORM_SAMPLE_QUOTAS = {
+    "overseas": {"DramaBox": 12, "GoodShort": 12},
+    "domestic": {"腾讯视频": 12, "优酷": 6, "阅文短剧": 6},
+}
 FRAME_SECONDS = (0, 20, 40, 58, 80, 100, 106, 130, 145, 163)
 INNERTUBE_PLAYER_URL = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
 ATOM_NS = {
@@ -82,8 +89,26 @@ def parse_views(entry: ET.Element) -> int:
 
 def synopsis_from_description(description: str, title: str, limit: int = 150) -> str:
     clean = clean_text(description, 340)
-    match = re.search(r"(?:synopsis|story|plot|introduction|简介|故事梗概)\s*:\s*(.+)", clean, re.I)
+    match = re.search(
+        r"(?:synopsis|story|plot|introduction|简介|簡介|故事梗概|剧情简介|劇情簡介)\s*[:：]\s*(.+)",
+        clean,
+        re.I,
+    )
     result = match.group(1) if match else clean
+    boilerplate_markers = (
+        "download \"wetv",
+        "download the wetv",
+        "join membership",
+        "facebook group",
+        "watch more episodes",
+        "all dramas are officially",
+        "郑重声明",
+        "鄭重聲明",
+        "这里是专属",
+        "這裡是專屬",
+    )
+    if any(marker in result.lower() for marker in boilerplate_markers):
+        result = clean_text(title, 340)
     return (result or title)[:limit].rstrip(" .")
 
 
@@ -423,7 +448,7 @@ def enrich_weekly_media(videos: list[dict]) -> None:
         (item for item in videos if is_current_week(item)),
         key=popularity_key,
         reverse=True,
-    )[:WEEKLY_PRIORITY_LIMIT]
+    )[:MEDIA_ENRICH_LIMIT]
     for item in weekly:
         video_id = str(item.get("id") or "")
         if not re.fullmatch(r"[A-Za-z0-9_-]{6,20}", video_id):
@@ -470,46 +495,263 @@ def generic_moments(hook: str) -> list[list[str]]:
     ]
 
 
-def feed_entries(channel: dict) -> list[dict]:
-    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel['id']}"
+COMPLETE_TITLE_MARKERS = (
+    "合集",
+    "全集",
+    "完整版",
+    "完整劇",
+    "完整剧",
+    "full version",
+    "full movie",
+    "full drama",
+    "【full】",
+    "[full]",
+    "complete",
+    "all episodes",
+)
+
+
+def is_episode_range_title(title: str) -> bool:
+    normalized = re.sub(r"\s+", " ", title or "").strip().lower()
+    return bool(
+        re.search(r"\bep(?:isode)?\s*0*\d+\s*(?:-|–|—|~|至|到)\s*(?:ep(?:isode)?\s*)?0*\d+\b", normalized)
+        or re.search(r"第\s*\d+\s*(?:-|–|—|~|至|到)\s*\d+\s*集", normalized)
+    )
+
+
+def is_complete_title(title: str) -> bool:
+    normalized = re.sub(r"\s+", " ", title or "").strip().lower()
+    return any(marker in normalized for marker in COMPLETE_TITLE_MARKERS) or is_episode_range_title(title)
+
+
+def is_single_episode_title(title: str) -> bool:
+    """Reject standalone episode uploads while retaining episode ranges/compilations."""
+    normalized = re.sub(r"\s+", " ", title or "").strip().lower()
+    if not normalized or is_complete_title(title):
+        return False
+
+    return bool(
+        re.search(r"\bep(?:isode)?\s*0*\d+\b", normalized)
+        or re.search(r"第\s*\d+\s*集", normalized)
+    )
+
+
+def is_eligible_title(title: str, excluded_keywords: list[str]) -> bool:
+    normalized = (title or "").lower()
+    if any(keyword in normalized for keyword in excluded_keywords):
+        return False
+    return not is_single_episode_title(title)
+
+
+def is_eligible_source_title(channel: dict, title: str, excluded_keywords: list[str]) -> bool:
+    return is_eligible_title(title, excluded_keywords) and (
+        not channel.get("completeOnly") or is_complete_title(title)
+    )
+
+
+def build_entry(
+    channel: dict,
+    video_id: str,
+    title: str,
+    description: str,
+    published: str,
+    views: int = 0,
+    duration: int = 0,
+    source: str = "youtube-atom",
+) -> dict:
+    hook = synopsis_from_description(description, title)
+    story_source = synopsis_from_description(description, title, limit=260)
+    card_copy = direct_card_copy(title, hook)
+    translated_hook = translate_to_zh(hook)
+    display_hook = translated_hook or hook
+    translated_story = translate_to_zh(story_source)
+    return {
+        "id": video_id,
+        "t": title,
+        "c": channel["label"],
+        "market": channel.get("market", "overseas"),
+        "platform": channel.get("platform", channel["label"]),
+        "d": duration,
+        "s": hook_score(title, hook),
+        "g": tags_for(title, description),
+        "h": display_hook,
+        "hEn": hook,
+        "ten": card_copy["ten"],
+        "story": translated_story or card_copy["story"],
+        "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
+        "m": generic_moments(display_hook),
+        "v": views,
+        "p": published,
+        "source": source,
+        "sourceUrl": f"https://www.youtube.com/watch?v={video_id}",
+    }
+
+
+def feed_entries(channel: dict, excluded_keywords: list[str] | None = None) -> list[dict]:
+    source_id = str(channel.get("playlistId") or channel.get("id") or "").strip()
+    if not source_id:
+        return []
+    feed_key = "playlist_id" if channel.get("playlistId") else "channel_id"
+    url = f"https://www.youtube.com/feeds/videos.xml?{feed_key}={urllib.parse.quote(source_id)}"
     root = ET.fromstring(fetch_bytes(url))
     result: list[dict] = []
+    excluded = [str(keyword).lower() for keyword in (excluded_keywords or []) if keyword]
     for entry in root.findall("atom:entry", ATOM_NS):
         video_id = text_at(entry, "yt:videoId")
         title = clean_text(text_at(entry, "atom:title"), 180)
+        if not is_eligible_source_title(channel, title, excluded):
+            continue
         published = text_at(entry, "atom:published")
         description = ""
         for node in entry.iter("{%s}description" % ATOM_NS["media"]):
             description = node.text or ""
             break
-        hook = synopsis_from_description(description, title)
-        story_source = synopsis_from_description(description, title, limit=260)
-        card_copy = direct_card_copy(title, hook)
-        translated_hook = translate_to_zh(hook)
-        display_hook = translated_hook or hook
-        translated_story = translate_to_zh(story_source)
         if not video_id or not title:
             continue
-        result.append(
-            {
-                "id": video_id,
-                "t": title,
-                "c": channel["label"],
-                "d": 0,
-                "s": hook_score(title, hook),
-                "g": tags_for(title, description),
-                "h": display_hook,
-                "hEn": hook,
-                "ten": card_copy["ten"],
-                "story": translated_story or card_copy["story"],
-                "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-                "m": generic_moments(display_hook),
-                "v": parse_views(entry),
-                "p": published,
-                "source": "youtube-atom",
-                "sourceUrl": f"https://www.youtube.com/watch?v={video_id}",
-            }
+        result.append(build_entry(channel, video_id, title, description, published, parse_views(entry)))
+    return result
+
+
+def api_source_entries(channel: dict, api_key: str, excluded_keywords: list[str]) -> list[dict]:
+    """List source videos through the low-cost uploads/playlist Data API endpoints."""
+    playlist_id = str(channel.get("playlistId") or "").strip()
+    if not playlist_id:
+        query = urllib.parse.urlencode(
+            {"part": "contentDetails", "id": channel["id"], "key": api_key}
         )
+        payload = json.loads(fetch_bytes(f"https://www.googleapis.com/youtube/v3/channels?{query}"))
+        records = payload.get("items") or []
+        if not records:
+            return []
+        playlist_id = (
+            records[0].get("contentDetails", {}).get("relatedPlaylists", {}).get("uploads", "")
+        )
+    if not playlist_id:
+        return []
+
+    query = urllib.parse.urlencode(
+        {
+            "part": "snippet,contentDetails",
+            "playlistId": playlist_id,
+            "maxResults": 50,
+            "key": api_key,
+        }
+    )
+    payload = json.loads(fetch_bytes(f"https://www.googleapis.com/youtube/v3/playlistItems?{query}"))
+    result = []
+    for record in payload.get("items") or []:
+        snippet = record.get("snippet") or {}
+        video_id = str((record.get("contentDetails") or {}).get("videoId") or "")
+        title = clean_text(str(snippet.get("title") or ""), 180)
+        if not video_id or not title or not is_eligible_source_title(channel, title, excluded_keywords):
+            continue
+        result.append(
+            build_entry(
+                channel,
+                video_id,
+                title,
+                str(snippet.get("description") or ""),
+                str((record.get("contentDetails") or {}).get("videoPublishedAt") or snippet.get("publishedAt") or ""),
+                source="youtube-data-api",
+            )
+        )
+    return result
+
+
+def walk_dicts(value: object):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from walk_dicts(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from walk_dicts(child)
+
+
+def text_contents(value: object):
+    for node in walk_dicts(value):
+        for key in ("content", "simpleText", "text"):
+            text = node.get(key)
+            if isinstance(text, str) and text:
+                yield text
+
+
+def parse_compact_views(values: list[str]) -> int:
+    for value in values:
+        match = re.search(r"([\d,.]+)\s*([kmb]?)\s+views?\b", value.lower())
+        if not match:
+            continue
+        number = float(match.group(1).replace(",", ""))
+        multiplier = {"": 1, "k": 1_000, "m": 1_000_000, "b": 1_000_000_000}[match.group(2)]
+        return int(number * multiplier)
+    return 0
+
+
+def parse_relative_published(values: list[str]) -> str:
+    for value in values:
+        match = re.search(r"(\d+)\s+(minute|hour|day|week|month|year)s?\s+ago", value.lower())
+        if not match:
+            continue
+        amount, unit = int(match.group(1)), match.group(2)
+        days = {"minute": 0, "hour": 0, "day": 1, "week": 7, "month": 30, "year": 365}[unit]
+        published = datetime.now(timezone.utc) - (
+            timedelta(minutes=amount) if unit == "minute" else
+            timedelta(hours=amount) if unit == "hour" else
+            timedelta(days=amount * days)
+        )
+        return published.isoformat()
+    return ""
+
+
+def parse_badge_duration(value: object) -> int:
+    for text in text_contents(value):
+        if not re.fullmatch(r"\d{1,2}:\d{2}(?::\d{2})?", text):
+            continue
+        parts = [int(part) for part in text.split(":")]
+        return parts[0] * 60 + parts[1] if len(parts) == 2 else parts[0] * 3600 + parts[1] * 60 + parts[2]
+    return 0
+
+
+def web_source_entries(channel: dict, excluded_keywords: list[str]) -> list[dict]:
+    """Fallback for sources whose legacy Atom feed is unavailable."""
+    if channel.get("playlistId"):
+        url = f"https://www.youtube.com/playlist?list={urllib.parse.quote(channel['playlistId'])}"
+    else:
+        url = f"https://www.youtube.com/channel/{urllib.parse.quote(channel['id'])}/videos"
+    page = fetch_browser_bytes(url).decode("utf-8", "replace")
+    match = re.search(r"var ytInitialData = (\{.+?\});</script>", page)
+    if not match:
+        raise ValueError("YouTube page did not expose initial video data")
+    initial_data = json.loads(match.group(1))
+    result = []
+    seen = set()
+    for node in walk_dicts(initial_data):
+        lockup = node.get("lockupViewModel")
+        if not isinstance(lockup, dict) or lockup.get("contentType") not in (None, "LOCKUP_CONTENT_TYPE_VIDEO"):
+            continue
+        video_id = str(lockup.get("contentId") or "")
+        metadata = (lockup.get("metadata") or {}).get("lockupMetadataViewModel") or {}
+        title = clean_text(str((metadata.get("title") or {}).get("content") or ""), 180)
+        if video_id in seen or not re.fullmatch(r"[A-Za-z0-9_-]{11}", video_id):
+            continue
+        seen.add(video_id)
+        if not title or not is_eligible_source_title(channel, title, excluded_keywords):
+            continue
+        metadata_values = list(text_contents(metadata.get("metadata") or {}))
+        result.append(
+            build_entry(
+                channel,
+                video_id,
+                title,
+                title,
+                parse_relative_published(metadata_values),
+                parse_compact_views(metadata_values),
+                parse_badge_duration(lockup.get("contentImage") or {}),
+                "youtube-web-fallback",
+            )
+        )
+        if len(result) >= 40:
+            break
     return result
 
 
@@ -575,39 +817,137 @@ def popularity_key(item: dict) -> tuple[int, float]:
     return views, published.timestamp() if published else 0.0
 
 
-def select_sample(videos: list[dict]) -> list[dict]:
-    """Keep this week's strongest additions, then fill the 30 slots by views."""
+def normalized_market(item: dict) -> str:
+    market = str(item.get("market") or "").lower()
+    if market in {"domestic", "overseas"}:
+        return market
+    channel = str(item.get("c") or "")
+    return "domestic" if re.search(r"优酷|阅文|腾讯|红果|河马|七猫|星芽|快手|抖音", channel) else "overseas"
+
+
+def select_market_sample(videos: list[dict], market: str) -> list[dict]:
+    pool = [item for item in videos if normalized_market(item) == market]
     weekly = sorted(
-        (item for item in videos if is_current_week(item)),
+        (item for item in pool if is_current_week(item)),
         key=popularity_key,
         reverse=True,
-    )[:WEEKLY_PRIORITY_LIMIT]
+    )[:WEEKLY_NEW_LIMIT_PER_MARKET]
     selected_ids = {item.get("id") for item in weekly}
+    selected = list(weekly)
+
+    # Reserve useful representation for each head platform before filling by
+    # overall popularity.  Weekly releases already count toward the quota.
+    for platform, quota in PLATFORM_SAMPLE_QUOTAS.get(market, {}).items():
+        platform_count = sum(item.get("platform") == platform for item in selected)
+        candidates = sorted(
+            (
+                item
+                for item in pool
+                if item.get("platform") == platform and item.get("id") not in selected_ids
+            ),
+            key=popularity_key,
+            reverse=True,
+        )
+        for item in candidates[: max(0, quota - platform_count)]:
+            selected.append(item)
+            selected_ids.add(item.get("id"))
+
     remaining = sorted(
-        (item for item in videos if item.get("id") not in selected_ids),
+        (item for item in pool if item.get("id") not in selected_ids),
         key=popularity_key,
         reverse=True,
     )
-    return (weekly + remaining)[:SAMPLE_LIMIT]
+    selected.extend(remaining[: max(0, MARKET_SAMPLE_LIMIT - len(selected))])
+    return selected[:MARKET_SAMPLE_LIMIT]
+
+
+def mark_weekly_focus(videos: list[dict]) -> None:
+    """Mark 8 actionable references per market, preferring this week's releases."""
+    for item in videos:
+        item["focus"] = False
+    for market in ("overseas", "domestic"):
+        market_items = [item for item in videos if normalized_market(item) == market]
+        ranked = sorted(
+            market_items,
+            key=lambda item: (is_current_week(item), int(item.get("s") or 0), *popularity_key(item)),
+            reverse=True,
+        )[:WEEKLY_FOCUS_LIMIT_PER_MARKET]
+        for item in ranked:
+            item["focus"] = True
+
+
+def select_sample(videos: list[dict]) -> list[dict]:
+    """Keep independent 24-item domestic and overseas rolling samples."""
+    selected = select_market_sample(videos, "overseas") + select_market_sample(videos, "domestic")
+    selected_ids = {item.get("id") for item in selected}
+    if len(selected) < SAMPLE_LIMIT:
+        remainder = sorted(
+            (item for item in videos if item.get("id") not in selected_ids),
+            key=popularity_key,
+            reverse=True,
+        )
+        selected.extend(remainder[: SAMPLE_LIMIT - len(selected)])
+    selected = selected[:SAMPLE_LIMIT]
+    for item in selected:
+        item["market"] = normalized_market(item)
+    mark_weekly_focus(selected)
+    return selected
 
 
 def main() -> int:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    channels = [channel for channel in config.get("channels", []) if channel.get("id")]
+    excluded_keywords = [
+        str(keyword).lower()
+        for keyword in config.get("excludeTitleKeywords", [])
+        if keyword
+    ]
+    channels = [
+        channel
+        for channel in config.get("channels", [])
+        if channel.get("id") or channel.get("playlistId")
+    ]
     if not channels:
         print("No YouTube channels configured", file=sys.stderr)
         return 2
 
+    api_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     fetched: list[dict] = []
     for channel in channels:
-        try:
-            entries = feed_entries(channel)
-            print(f"{channel['label']}: {len(entries)} feed entries")
+        entries: list[dict] = []
+        api_error = None
+        feed_error = None
+        if api_key:
+            try:
+                entries = api_source_entries(channel, api_key, excluded_keywords)
+            except Exception as exc:
+                api_error = exc
+        if not entries:
+            try:
+                entries = feed_entries(channel, excluded_keywords)
+            except Exception as exc:
+                feed_error = exc
+        if not entries:
+            try:
+                entries = web_source_entries(channel, excluded_keywords)
+            except Exception as web_error:
+                details = f"API={api_error}; " if api_error else ""
+                atom_details = f"Atom={feed_error}; " if feed_error else "Atom returned no eligible entries; "
+                print(
+                    f"warning: failed to fetch {channel['label']}: "
+                    f"{details}{atom_details}web={web_error}",
+                    file=sys.stderr,
+                )
+                continue
+            if entries:
+                atom_reason = str(feed_error) if feed_error else "no eligible entries"
+                print(
+                    f"{channel['label']}: Atom unavailable ({atom_reason}); "
+                    f"using {len(entries)} public-page entries"
+                )
+        if entries:
+            print(f"{channel['label']}: {len(entries)} eligible entries")
             fetched.extend(entries)
-        except Exception as exc:  # one channel should not block the other
-            print(f"warning: failed to fetch {channel['label']}: {exc}", file=sys.stderr)
 
-    api_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     if api_key:
         try:
             api_enrich(fetched, api_key)
@@ -616,7 +956,23 @@ def main() -> int:
             print(f"warning: API enrichment failed; keeping RSS values: {exc}", file=sys.stderr)
 
     existing = load_existing()
+    channels_by_label = {str(channel.get("label") or ""): channel for channel in channels}
+    retained_previous = []
     for previous in existing.get("videos", []):
+        source_channel = channels_by_label.get(str(previous.get("c") or ""), {})
+        if not is_eligible_source_title(
+            source_channel, str(previous.get("t") or ""), excluded_keywords
+        ):
+            continue
+        if source_channel:
+            previous["market"] = source_channel.get("market", normalized_market(previous))
+            previous["platform"] = source_channel.get("platform", previous.get("c", ""))
+        retained_previous.append(previous)
+    removed_count = len(existing.get("videos", [])) - len(retained_previous)
+    if removed_count:
+        print(f"removed {removed_count} ineligible cached records")
+    existing["videos"] = retained_previous
+    for previous in retained_previous:
         card_copy = direct_card_copy(str(previous.get("t", "")), str(previous.get("h", "")))
         previous.setdefault("ten", card_copy["ten"])
         previous_hook = str(previous.get("h", ""))
@@ -638,13 +994,17 @@ def main() -> int:
         previous = by_id.get(item["id"])
         if previous:
             # Keep any manually edited analysis while refreshing factual fields.
-            if previous.get("source") == "youtube-atom":
+            if previous.get("source") in {
+                "youtube-atom",
+                "youtube-data-api",
+                "youtube-web-fallback",
+            }:
                 for key in ("s", "g", "h", "hEn", "ten", "story", "u", "m"):
                     previous[key] = item[key]
             elif item.get("story"):
                 previous["story"] = item["story"]
-            for key in ("t", "c", "d", "v", "p", "source", "sourceUrl", "storyboard", "frames", "framesCapturedAt"):
-                if item.get(key) not in (None, "", 0) or key in ("t", "c", "p", "source", "sourceUrl"):
+            for key in ("t", "c", "market", "platform", "d", "v", "p", "source", "sourceUrl", "storyboard", "frames", "framesCapturedAt"):
+                if item.get(key) not in (None, "", 0) or key in ("t", "c", "market", "platform", "p", "source", "sourceUrl"):
                     previous[key] = item.get(key)
         else:
             by_id[item["id"]] = item
