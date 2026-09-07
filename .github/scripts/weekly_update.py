@@ -134,53 +134,106 @@ def direct_card_copy(title: str, synopsis: str) -> dict[str, str]:
     text = f"{title} {synopsis}".lower()
     rules = [
         (
-            ("auction", "sold"),
+            r"\b(auction|sold)\b|拍卖|拍賣|绑架|綁架",
             "主角被绑架后送上地下拍卖台，买下她的人却和她以为已经死去的爱人有关。她必须先逃出去，再查清对方的真实身份。",
             "画面：主角戴着锁链被推上拍卖台，神秘买家高价拍下她。｜吸睛点：人身危机和身份悬念同时出现。",
         ),
         (
-            ("cheat", "betray", "lover", "mistress", "divorce", "ex "),
+            r"\b(cheat(?:ed|ing)?|betray(?:ed|al)?|mistress|divorce|revenge|reborn|regret|ex)\b|出轨|出軌|背叛|复仇|復仇|报仇|報仇|重生|逆天改命|陷害|算计|算計|捉奸|捉姦|欺凌",
             "主角发现最亲近的人背叛了自己。她不再继续忍耐，而是离开旧关系并准备让背叛者付出代价。",
             "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
         ),
         (
-            ("wedding", "bride", "fiancé", "fiance", "altar"),
-            "婚礼现场突然失控，主角被背叛、替嫁或当众抢走。她必须在众目睽睽下做出选择，并查清这场婚礼背后的算计。",
-            "画面：婚礼刚开始就有人闯入或揭穿秘密，所有宾客同时看向主角。｜吸睛点：公开场合翻车，羞辱和反转一眼就懂。",
+            r"\b(wedding|bride|fianc(?:e|é)e?|altar|marriage|contract wife|fake wife)\b|婚礼|婚禮|婚约|婚約|替嫁|新婚|先婚后爱|先婚後愛|婚姻",
+            "一纸婚约把原本没有感情的两个人绑在一起。两人从互相提防到逐渐动心，还要处理婚约背后的利益和秘密。",
+            "画面：双方当场签下婚约或被迫成为夫妻，彼此都强调这只是一场交易。｜吸睛点：先定规则再埋下动心反转，关系张力马上成立。",
         ),
         (
-            ("baby", "daughter", "son", "mom", "mother", "pregnant"),
+            r"\b(time travel|another world|system|read mind|mind-reading|apocalypse|zombie)\b|穿越|系统|系統|外挂|外掛|异世界|異世界|读心|讀心|末日|造景箱|物资|物資",
+            "主角意外获得穿越、系统或读心等特殊能力，并被卷入一个陌生局面。主角必须先摸清能力规则，再用信息差改变自己的处境。",
+            "画面：主角刚确认自己身处异常世界，特殊能力或任务提示立刻出现。｜吸睛点：十秒内同时交代新规则和第一道生存难题。",
+        ),
+        (
+            r"\b(baby|daughter|son|mom|mommy|mother|pregnant|child)\b|萌宝|萌寶|孩子|女儿|女兒|母亲|母親|妈咪|媽咪|怀孕|懷孕",
             "孩子或母亲的身份被人隐瞒，主角因此失去了最重要的家人。她开始追查真相，也逼迫伤害家人的人面对后果。",
             "画面：一个胎记、孕检结果或孩子的称呼突然暴露关系。｜吸睛点：认亲信息一出现，心疼和悬念会同时拉满。",
         ),
         (
-            ("billionaire", "mafia", "king", "queen", "boss", "heir"),
+            r"\b(bodyguard|guard|protect(?:or|ion)?|rescue)\b|保镖|保鏢|贴身守护|貼身守護|相救|护妻|護妻",
+            "主角因身体或身份陷入危险，被安排与贴身保护者朝夕相处。两人一边躲避外部威胁，一边逐渐越过雇佣关系的界线。",
+            "画面：危险突然逼近，保护者把主角拉到身后并正面挡下攻击。｜吸睛点：救命动作直接建立关系，也留下保护者身份悬念。",
+        ),
+        (
+            r"\b(billionaire|mafia|king|queen|boss|heiress|heir|ceo|empress)\b|豪门|豪門|黑帮|黑幫|千金|总裁|總裁|霸总|霸總|大佬|女帝|皇后|王妃",
             "主角原本被当成普通人或牺牲品，随后却被真正有权势的人选中。隐藏身份曝光后，原先欺负她的人开始后悔。",
             "画面：主角刚被看不起，真正掌权的人就走到她身边并公开护住她。｜吸睛点：地位在十秒内翻转，爽点非常直接。",
         ),
         (
-            ("apocalypse", "system", "starve", "food", "zombie"),
-            "末日中所有人都在争抢资源，主角却突然得到系统或无限物资。他利用这个优势活下来，并建立自己的势力。",
-            "画面：别人正为一口食物拼命，主角面前却出现大量资源或系统奖励。｜吸睛点：极端资源差不用解释就能看懂。",
-        ),
-        (
-            ("professor", "school", "college", "student", "class"),
+            r"\b(professor|school|college|student|class)\b|校园|校園|学校|學校|同学|同學",
             "主角在校园里遇到一段不能公开的关系。两人越想装作陌生，过去的秘密越容易被其他人发现。",
             "画面：两人在课堂重新见面并立刻认出对方，却必须假装从未认识。｜吸睛点：观众先知道秘密，会一直等它被戳破。",
         ),
         (
-            ("secret", "hidden", "identity", "dragon rider", "superhero"),
+            r"\b(love(?:s|d)?|couple|romance|relationship|chase (?:his|her) wife|game between)\b|爱情|愛情|恋爱|戀愛|追妻|感情|夫妻|情侣|情侶|告白",
+            "两个人因为约定或试探被迫靠近，表面上都不肯先认真。随着相处升级，关系中的秘密和真实感情开始暴露。",
+            "画面：两人先定下不能动心的规则，下一秒却发生越界接触。｜吸睛点：嘴硬和行动形成反差，观众会等谁先失守。",
+        ),
+        (
+            r"\b(secret|hidden|identity|dragon rider|superhero|genie|magic)\b|隐藏身份|隱藏身份|龙骑|龍騎|神权|神權|封神|仙宗|武功|天尊",
             "所有人都看错了主角的身份。危机出现后，主角露出真正能力，并开始清算曾经羞辱自己的人。",
             "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。",
         ),
+        (
+            r"军户|軍戶|王朝|皇权|皇權|乱世|亂世|上阵|上陣|家国|家國|江山",
+            "主角被卷入乱世或权力争夺，只能靠自己的本事保住身边的人。随着实力提升，主角也开始改变原本注定的结局。",
+            "画面：主角刚落入绝境，马上用一项压箱底的本事扭转局面。｜吸睛点：生存目标和升级路线同时出现。",
+        ),
     ]
-    for words, story, first_ten in rules:
-        if any(word in text for word in words):
+    for pattern, story, first_ten in rules:
+        if re.search(pattern, text, re.I):
             return {"story": story, "ten": first_ten}
     return {
         "story": "主角一开场就被卷入一场突发冲突。为了摆脱眼前困境，主角必须马上做出选择，并找出幕后真正的操控者。",
         "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
     }
+
+
+def normalized_copy(value: str) -> str:
+    return re.sub(r"[^a-z0-9\u3400-\u9fff]+", "", str(value or "").lower())
+
+
+def same_card_copy(left: str, right: str) -> bool:
+    left_key, right_key = normalized_copy(left), normalized_copy(right)
+    return bool(left_key and right_key and left_key == right_key)
+
+
+def repair_card_copy(item: dict) -> None:
+    """Replace title-derived placeholders without overwriting reviewed copy."""
+    fallback = direct_card_copy(str(item.get("t", "")), str(item.get("h", "")))
+    hook = str(item.get("h", ""))
+    story = str(item.get("story", ""))
+    ten = str(item.get("ten", ""))
+    generic_story = "主角一开场就被卷入一场突发冲突。为了摆脱眼前困境，主角必须马上做出选择，并找出幕后真正的操控者。"
+    generic_ten = "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。"
+    story_needs_repair = (
+        not story
+        or story == generic_story
+        or same_card_copy(story, hook)
+        or same_card_copy(story, str(item.get("t", "")))
+    )
+    if story_needs_repair:
+        item["story"] = fallback["story"]
+    if (
+        story_needs_repair
+        or same_card_copy(str(item.get("story", "")), fallback["story"])
+        or not ten
+        or ten == generic_ten
+        or same_card_copy(ten, hook)
+        or same_card_copy(ten, story)
+    ):
+        item["ten"] = fallback["ten"]
+    if isinstance(item.get("m"), list) and item["m"] and isinstance(item["m"][0], list):
+        item["m"][0][1] = item["ten"]
 
 
 def tags_for(title: str, description: str) -> list[str]:
@@ -565,7 +618,7 @@ def build_entry(
     translated_hook = translate_to_zh(hook)
     display_hook = translated_hook or hook
     translated_story = translate_to_zh(story_source)
-    return {
+    entry = {
         "id": video_id,
         "t": title,
         "c": channel["label"],
@@ -579,12 +632,14 @@ def build_entry(
         "ten": card_copy["ten"],
         "story": translated_story or card_copy["story"],
         "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
-        "m": generic_moments(display_hook),
+        "m": generic_moments(card_copy["ten"]),
         "v": views,
         "p": published,
         "source": source,
         "sourceUrl": f"https://www.youtube.com/watch?v={video_id}",
     }
+    repair_card_copy(entry)
+    return entry
 
 
 def feed_entries(channel: dict, excluded_keywords: list[str] | None = None) -> list[dict]:
@@ -989,6 +1044,7 @@ def main() -> int:
         if not existing_story or not re.search(r"[\u3400-\u9fff]", existing_story):
             translated_story = translate_to_zh(story_source)
             previous["story"] = translated_story or existing_story or card_copy["story"]
+        repair_card_copy(previous)
     by_id = {item.get("id"): item for item in existing.get("videos", []) if item.get("id")}
     for item in fetched:
         previous = by_id.get(item["id"])
