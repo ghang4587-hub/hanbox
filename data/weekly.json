@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-28T01:08:33.874578+00:00",
+  "generatedAt": "2026-10-05T06:31:24.911772+00:00",
   "source": "YouTube public channel feeds",
   "videos": [
     {
@@ -343,22 +343,22 @@
       "c": "DramaBox 官方",
       "market": "overseas",
       "platform": "DramaBox",
-      "d": 0,
-      "s": 83,
+      "d": 1089,
+      "s": 78,
       "g": [
-        "复仇",
-        "豪门",
-        "身份反转"
+        "新样本",
+        "冲突开场",
+        "YouTube"
       ],
-      "h": "伊伦将他的头狼交给了他心爱的伴侣瑟琳娜，以实现她的梦想。在她抛弃他后，他获得了由 Moon Go 祝福的秘密狼人力量",
-      "hEn": "Aeron gives his Alpha wolf to his beloved mate Serena to fulfill her dream. After she abandons him, he gains secret Lycan power blessed by the Moon Go",
-      "ten": "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。",
-      "story": "伊伦将他的头狼交给了他心爱的伴侣瑟琳娜，以实现她的梦想。在她抛弃他后，他获得了月亮女神祝福的秘密狼人力量。多年后，雄心勃勃的瑟琳娜为了统治地位而入侵狼群。伊伦必须面对他的前恋人，战斗",
+      "h": "我的伴侣为了权力离开了我。然后月亮女神选择了我。 🌕 |戏剧盒",
+      "hEn": "My Mate Left Me for Power. Then the Moon Goddess Chose Me. 🌕 | DramaBox",
+      "ten": "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。",
+      "story": "主角一开场就被卷入一场突发冲突。为了摆脱眼前困境，主角必须马上做出选择，并找出幕后真正的操控者。",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "画面：主角先被当成弱者，下一秒直接亮出隐藏能力。｜吸睛点：外表和实力反差越大，打脸越快。"
+          "画面：主角的目标刚出现，眼前的阻碍就立刻打断计划。｜吸睛点：人物要什么、谁在阻止，十秒内交代清楚。"
         ],
         [
           "00:58",
@@ -374,10 +374,10 @@
         ]
       ],
       "v": 47632,
-      "p": "2026-09-22T15:15:39+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=olt5GTvy3jI",
-      "focus": true
+      "focus": false
     },
     {
       "id": "AZXqqcDdzuw",
@@ -1007,11 +1007,11 @@
       "p": "2026-09-04T11:00:22+00:00",
       "source": "youtube-atom",
       "sourceUrl": "https://www.youtube.com/watch?v=fuM-slY--64",
-      "focus": false
+      "focus": true
     },
     {
       "id": "V-zysxG7Jdg",
-      "t": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "t": "ENG SUB [Forever Love] Full Version PartⅠ | Redemption of the wealthy heiress and her bodyguard",
       "c": "腾讯视频微短剧",
       "market": "domestic",
       "platform": "腾讯视频",
@@ -1019,11 +1019,11 @@
       "s": 78,
       "g": [
         "豪门",
-        "亲情",
-        "冲突开场"
+        "冲突开场",
+        "YouTube"
       ],
-      "h": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
-      "hEn": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 1 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "h": "ENG SUB [永远的爱] 完整版第一部分 |富有的女继承人和她的保镖的救赎",
+      "hEn": "ENG SUB [Forever Love] Full Version PartⅠ | Redemption of the wealthy heiress and her bodyguard",
       "ten": "画面：危险突然逼近，保护者把主角拉到身后并正面挡下攻击。｜吸睛点：救命动作直接建立关系，也留下保护者身份悬念。",
       "story": "主角因身体或身份陷入危险，被安排与贴身保护者朝夕相处。两人一边躲避外部威胁，一边逐渐越过雇佣关系的界线。",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
@@ -1046,8 +1046,8 @@
         ]
       ],
       "v": 1229858,
-      "p": "2023-10-11T10:30:12+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=V-zysxG7Jdg",
       "focus": true
     },
@@ -1088,14 +1088,14 @@
         ]
       ],
       "v": 1000000,
-      "p": "2023-09-08T06:59:25.032535+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=gxQh71RYSSM",
       "focus": true
     },
     {
       "id": "5U09HqdBEIA",
-      "t": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "t": "ENG SUB [Forever Love] Full Version PartⅡ | Redemption of the wealthy heiress and her bodyguard",
       "c": "腾讯视频微短剧",
       "market": "domestic",
       "platform": "腾讯视频",
@@ -1103,11 +1103,11 @@
       "s": 78,
       "g": [
         "豪门",
-        "亲情",
-        "冲突开场"
+        "冲突开场",
+        "YouTube"
       ],
-      "h": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
-      "hEn": "ENG SUB【盲心千金 Forever Love】合集版 Full Version Part 2 盲女千金纯欲撩，硬汉保镖贴身守护强制爱！（陈芳彤、代高政）",
+      "h": "ENG SUB [永远的爱] 完整版第二部分 |富有的女继承人和她的保镖的救赎",
+      "hEn": "ENG SUB [Forever Love] Full Version PartⅡ | Redemption of the wealthy heiress and her bodyguard",
       "ten": "画面：危险突然逼近，保护者把主角拉到身后并正面挡下攻击。｜吸睛点：救命动作直接建立关系，也留下保护者身份悬念。",
       "story": "主角因身体或身份陷入危险，被安排与贴身保护者朝夕相处。两人一边躲避外部威胁，一边逐渐越过雇佣关系的界线。",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
@@ -1130,8 +1130,8 @@
         ]
       ],
       "v": 666803,
-      "p": "2023-10-12T10:30:03+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=5U09HqdBEIA",
       "focus": true
     },
@@ -1172,7 +1172,7 @@
         ]
       ],
       "v": 307000,
-      "p": "2023-09-08T06:59:25.489390+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=cBgg6JfSx0o",
       "focus": true
@@ -1214,7 +1214,7 @@
         ]
       ],
       "v": 156000,
-      "p": "2023-09-08T06:59:22.254856+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=wMtyXWrQ-rY",
       "focus": true
@@ -1256,7 +1256,7 @@
         ]
       ],
       "v": 119000,
-      "p": "2023-09-08T06:59:26.853588+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=PVQQ8nXhkQg",
       "focus": true
@@ -1298,33 +1298,33 @@
         ]
       ],
       "v": 113000,
-      "p": "2023-09-08T06:59:21.826035+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=72miE0_G8Ms",
       "focus": false
     },
     {
       "id": "qqJUcG1fLv8",
-      "t": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
+      "t": "ENG SUB [The Deliberations of Love] Full Version | The princess married with her husband three lives",
       "c": "腾讯视频微短剧",
       "market": "domestic",
       "platform": "腾讯视频",
       "d": 9883,
       "s": 78,
       "g": [
-        "亲情",
+        "新样本",
         "冲突开场",
         "YouTube"
       ],
-      "h": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
-      "hEn": "ENG SUB【卿卿三思 The Deliberations of Love】合集版 Full Version 悲催王妃逆天改命终与夫君再结良缘（赵嘉敏、李菲）",
-      "ten": "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。",
-      "story": "主角发现最亲近的人背叛了自己。她不再继续忍耐，而是离开旧关系并准备让背叛者付出代价。",
+      "h": "ENG SUB [爱的深思熟虑] 完整版 |公主与丈夫结婚三生",
+      "hEn": "ENG SUB [The Deliberations of Love] Full Version | The princess married with her husband three lives",
+      "ten": "画面：两人先定下不能动心的规则，下一秒却发生越界接触。｜吸睛点：嘴硬和行动形成反差，观众会等谁先失守。",
+      "story": "两个人因为约定或试探被迫靠近，表面上都不肯先认真。随着相处升级，关系中的秘密和真实感情开始暴露。",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
       "m": [
         [
           "00:00",
-          "画面：主角当场撞破背叛，对方还以为她会继续忍。｜吸睛点：先把委屈压到最低，观众会马上等她反击。"
+          "画面：两人先定下不能动心的规则，下一秒却发生越界接触。｜吸睛点：嘴硬和行动形成反差，观众会等谁先失守。"
         ],
         [
           "00:58",
@@ -1340,26 +1340,26 @@
         ]
       ],
       "v": 112517,
-      "p": "2023-11-04T13:00:55+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=qqJUcG1fLv8",
       "focus": false
     },
     {
       "id": "aL-Cm1V4uj8",
-      "t": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
+      "t": "ENG SUB [Please Fall In Love] Full Version | Four love battles, Who will she give her heart to?",
       "c": "腾讯视频微短剧",
       "market": "domestic",
       "platform": "腾讯视频",
       "d": 12895,
       "s": 78,
       "g": [
-        "豪门",
+        "新样本",
         "冲突开场",
         "YouTube"
       ],
-      "h": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
-      "hEn": "ENG SUB【我才不要恋爱呢 Please Fall In Love】合集版 Full Version 四色型男爱情battle，入局恋爱游戏见招拆招（陈昕葳、金泽）",
+      "h": "ENG SUB [请恋爱吧] 完整版 |四场情战，她会把心交给谁？",
+      "hEn": "ENG SUB [Please Fall In Love] Full Version | Four love battles, Who will she give her heart to?",
       "ten": "画面：两人先定下不能动心的规则，下一秒却发生越界接触。｜吸睛点：嘴硬和行动形成反差，观众会等谁先失守。",
       "story": "两个人因为约定或试探被迫靠近，表面上都不肯先认真。随着相处升级，关系中的秘密和真实感情开始暴露。",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
@@ -1382,8 +1382,8 @@
         ]
       ],
       "v": 97840,
-      "p": "2024-01-09T10:30:00+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=aL-Cm1V4uj8",
       "focus": false
     },
@@ -1424,7 +1424,7 @@
         ]
       ],
       "v": 90000,
-      "p": "2023-09-08T06:59:29.272597+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=qHqUzd7yCDo",
       "focus": false
@@ -1466,26 +1466,26 @@
         ]
       ],
       "v": 89000,
-      "p": "2023-09-08T06:59:24.604616+00:00",
+      "p": "",
       "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=awWDtFja2t4",
       "focus": false
     },
     {
       "id": "PCmB1NeR1NI",
-      "t": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
+      "t": "ENG SUB [My Fake Wife] Full Version | The CEO fell in love with the substituted bride!",
       "c": "腾讯视频微短剧",
       "market": "domestic",
       "platform": "腾讯视频",
       "d": 5965,
       "s": 78,
       "g": [
-        "亲情",
+        "新样本",
         "冲突开场",
         "YouTube"
       ],
-      "h": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
-      "hEn": "ENG SUB【心动的他 My Fake Wife】合集版 Full Version 先婚后爱，总裁恋上替嫁女！（谢伊博、郭嘉语）",
+      "h": "ENG SUB [我的假老婆] 完整版 |总裁爱上了替身新娘！",
+      "hEn": "ENG SUB [My Fake Wife] Full Version | The CEO fell in love with the substituted bride!",
       "ten": "画面：双方当场签下婚约或被迫成为夫妻，彼此都强调这只是一场交易。｜吸睛点：先定规则再埋下动心反转，关系张力马上成立。",
       "story": "一纸婚约把原本没有感情的两个人绑在一起。两人从互相提防到逐渐动心，还要处理婚约背后的利益和秘密。",
       "u": "先验证前 180 秒的身份、羞辱或反击节点，再决定是否拆成买量素材。",
@@ -1508,8 +1508,8 @@
         ]
       ],
       "v": 80389,
-      "p": "2023-10-31T10:00:31+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=PCmB1NeR1NI",
       "focus": false
     },
@@ -1813,7 +1813,7 @@
       "c": "阅文短剧官方",
       "market": "domestic",
       "platform": "阅文短剧",
-      "d": 0,
+      "d": 12229,
       "s": 78,
       "g": [
         "新样本",
@@ -1844,8 +1844,8 @@
         ]
       ],
       "v": 156537,
-      "p": "2026-09-12T11:00:06+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=_2QV0Y8Csm4",
       "focus": true
     },
@@ -1855,7 +1855,7 @@
       "c": "阅文短剧官方",
       "market": "domestic",
       "platform": "阅文短剧",
-      "d": 0,
+      "d": 9402,
       "s": 78,
       "g": [
         "新样本",
@@ -1886,8 +1886,8 @@
         ]
       ],
       "v": 93981,
-      "p": "2026-09-23T12:00:09+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=5cQQ5IIg-uE",
       "focus": false
     },
