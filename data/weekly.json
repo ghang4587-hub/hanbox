@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-12T06:54:07.258441+00:00",
+  "generatedAt": "2026-10-19T05:39:30.043304+00:00",
   "source": "YouTube public channel feeds",
   "videos": [
     {
@@ -1771,7 +1771,7 @@
       "c": "阅文短剧官方",
       "market": "domestic",
       "platform": "阅文短剧",
-      "d": 0,
+      "d": 9532,
       "s": 78,
       "g": [
         "新样本",
@@ -1802,8 +1802,8 @@
         ]
       ],
       "v": 406881,
-      "p": "2026-10-01T11:00:08+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=dxn6R5F-uMM",
       "focus": true
     },
@@ -1813,7 +1813,7 @@
       "c": "阅文短剧官方",
       "market": "domestic",
       "platform": "阅文短剧",
-      "d": 0,
+      "d": 6341,
       "s": 78,
       "g": [
         "新样本",
@@ -1844,8 +1844,8 @@
         ]
       ],
       "v": 213750,
-      "p": "2026-09-29T11:15:26+00:00",
-      "source": "youtube-atom",
+      "p": "",
+      "source": "youtube-web-fallback",
       "sourceUrl": "https://www.youtube.com/watch?v=Bw1GLn_1buk",
       "focus": true
     },
